@@ -1,0 +1,154 @@
+.menu-category-cont{
+  
+    --bs-gutter-x: 0 !important;
+
+}
+
+.card-styles {
+  padding: 10px;
+  border: 1px solid #FFD700;
+  border-radius: 5px;
+}
+.quantity-div{
+ 
+    display: inline-flex;
+    align-items: center;
+  border-radius: 25%;
+  background-color: #1e1e1e;
+}
+.button-quantity{
+  border: none;
+  border-radius: 16px;
+  background-color: #32CD32;
+  color: #ffffff;
+}
+.button-quantity:disabled{
+  color: #ffffff;
+  
+  background-color: #ff44008a;
+}
+.button-card{
+  border: 1px solid seagreen;
+  border-radius: 8px;
+  background-color: #32CD32 ;
+  box-shadow: 3px 3px 10px rgba(189,27,189,0.5);
+}
+.title-enfasis{
+  color: #FFD700 ;
+}
+
+.image-class {
+
+  height: 100px;
+  object-fit: cover; 
+  
+
+ 
+ 
+}
+.card-image {
+  width: 100%;
+  height: 300px;
+  object-fit: fill;
+}
+
+.card-styles-body {
+  padding: 15px;
+  background-color: #201c1c;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.quantity-controls button {
+  padding: 6px 12px;
+}
+
+.quantity-controls span {
+  font-size: 1rem;
+}
+
+.button-cart {
+  margin-left: 100px;
+}
+
+.button {
+  background-color: #25d366 !important ;   
+}
+
+.select-category-scroll {
+  position: fixed;
+  top: 50px; /* Ajusta según sea necesario */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #201c1c;
+  color: #25d366;
+  border: 1px solid #25d366;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000; 
+}
+.select-category {
+  position: fixed;
+  top: 70px !important; 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #201c1c;
+  color: #25d366;
+  border: 1px solid #25d366;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000; 
+}
+
+.select-category:focus {
+  outline: none;
+  border-color: #25d366;
+}
+
+.select-category option {
+  padding: 10px;
+  background-color: #201c1c;
+  color: #25d366;
+}
+
+
+@media (max-width: 768px) {
+  .menu-cart {
+    grid-template-columns: 1fr; 
+    margin-top: 80px;
+    padding: 10px;
+    margin-bottom: 80px; 
+  }
+
+  .card-styles {
+    width: 100%;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+  .category-dropdown {
+    top: 10px; 
+    font-size: 14px; 
+    width: 85%;
+    z-index: 10;
+ 
+  }
+  .card-styles:hover {
+    transform: none; 
+  }
+}

@@ -1,0 +1,89 @@
+header, main, footer {
+  background-color: #121212;
+}
+
+
+.imagen-inicio {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.imagen-inicio img {
+  width: 50%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  border: 5px solid #121212;
+}
+.enfasis{
+  color: #FFD700 !important;
+}
+.table-row {
+  background-color: #1E1E1E;
+  color: #e5e5e5; 
+}
+
+.row1 {
+  background-color: #121212;
+}
+
+.row2 {
+  background-color: #1E1E1E;
+
+}
+
+.row3 {
+  background-color: #121212;
+}
+
+.row4 {
+  background-color: #1E1E1E;
+}
+.mapa {
+  width: 50%; 
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+
+}
+.direccion{
+  font-size:medium;
+  font-weight: 100;
+}
+
+.rounded-button {
+  width: 80% !important;
+  background-color: #1E1E1E;
+  padding: 15px 0;
+  border: 2px solid #ffd700;
+  border-radius: 15px;
+  font-size: 1.2em;
+  text-align: center;
+  color: #e5e5e5;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+@media (max-width: 915px) {
+  
+  .imagen-inicio img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+  }
+  .mapa{
+    width: 80%;
+    height: 300px;
+  }
+
+ 
+
+}
+
+
+
+

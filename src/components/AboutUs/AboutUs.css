@@ -1,0 +1,163 @@
+.aboutUs {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  margin: 20px;
+  margin-top: 60px;
+  min-height: 500px;
+  gap: 20px;
+}
+
+.title, b {
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: title 3s linear infinite;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  margin-top: 50px;
+}
+
+@keyframes title {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.memberCard {
+  width: 100%;
+  max-width: 250px;
+  height: auto; 
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 15px;
+  color: #ffffff;
+  background: linear-gradient(180deg, #3a006d 0%, #010003 100%);
+  position: relative;
+  margin: 10px;
+}
+
+.memberImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.413);
+  margin: auto;
+}
+
+.memberName {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.memberDescription {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+
+@media screen and (min-width: 1024px) {
+
+  .aboutUs {
+    margin-bottom: 20px;
+  }
+
+  .memberCard {
+    width: 250px;
+    height: 210px;
+    transition: height 0.5s;
+    margin-bottom: 200px;
+  }
+
+  .memberCard:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.537);
+    height: 340px;
+    transition-timing-function: ease;
+  }
+
+  .memberImage {
+    transition: transform 0.6s;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .memberCard:hover .memberImage {
+    transform: translate(-50%, -30px);
+  }
+  
+  .memberName {
+    opacity: 0;
+    transition: 0.6s;
+  }
+  
+  .memberCard:hover .memberName {
+    margin-top: 180px;
+    opacity: 1;
+  }
+  
+  .memberDescription {
+    opacity: 0;
+  }
+  
+  .memberCard:hover .memberDescription {
+    opacity: 1;
+  }
+  
+  .socialIcons {
+    opacity: 0;
+  }
+  
+  .memberCard:hover .socialIcons {
+    opacity: 1;
+  }
+}
+
+.aboutUs-banner {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+@media screen and (min-width: 10px) {
+  .aboutUs-banner {
+    max-width: 100%;
+    max-height: 350px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .aboutUs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .memberCard {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .aboutUs {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+

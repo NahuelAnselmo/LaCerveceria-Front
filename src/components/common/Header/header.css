@@ -1,0 +1,55 @@
+nav {
+  background-color: #121212;
+  border-bottom: 2px solid #1e1e1e;
+}
+.navbar-brand {
+  color: #e5e5e5 !important;
+}
+.offcanvas.offcanvas-end.show {
+  background-color: #121212;
+  color: #e5e5e5;
+}
+
+.btn-vio {
+  background-color: #bb86fc !important;
+  width: 32px;
+}
+.btn-hamb {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='currentColor' class='bi bi-list' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5'/%3E%3C/svg%3E") !important;
+}
+.rounded-button {
+  width: 80% !important;
+  padding: 15px 0;
+  border: 2px solid #ffd700;
+  border-radius: 15px;
+  font-size: 1.2em;
+  text-align: center;
+  color: #e5e5e5;
+  cursor: pointer;
+  text-decoration: none;
+}
+a {
+  color: #e5e5e5 !important;
+  text-decoration: none !important;
+}
+.potion {
+  width: 80px;
+  height: 80px;
+}
+.button-cerrar {
+  background-color: #1e1e1e;
+  border: 2px solid #ffd700;
+  border-radius: 15px;
+  color: #e5e5e5;
+  padding: 10px;
+}
+.ico-redes {
+  width: 25px;
+  height: 25px;
+}
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28137, 76, 236, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.h1-titulo-enfasis{
+  color: #ffd700 !important;
+}

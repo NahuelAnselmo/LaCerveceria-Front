@@ -1,0 +1,79 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Jose Lobo",
+      "email": "j.a.lobo753@gmail.com",
+      "password": "123456789J",
+      "dni": "123456789",
+      "isAdmin": true
+    },
+    {
+      "id": "2",
+      "name": "Jose Lobo",
+      "email": "agustinmaster22@gmail.com",
+      "password": "123456789J",
+      "dni": "123456789",
+      "isAdmin": false
+    }
+  ],
+
+  "menu": [
+    {
+      "category": "Entradas",
+      "id": "161a",
+      "name": "Empanadas de Pollo",
+      "imageUrl": "https://tumilanesa.com.ar/wp-content/uploads/2023/05/empanadas-pollo-jugosas.jpg",
+      "description": "Exquisitas empanadas de pollo",
+      "price": 750,
+      "quantity": 150
+    },
+    {
+      "category": "Entradas",
+      "id": "191a",
+      "name": "Empanadas de Pollo",
+      "imageUrl": "https://tumilanesa.com.ar/wp-content/uploads/2023/05/empanadas-pollo-jugosas.jpg",
+      "description": "Exquisitas empanadas de pollo",
+      "price": 750,
+      "quantity": 150
+    },
+    {
+      "category": "Entradas",
+      "id": "171a",
+      "name": "Empanadas de Pollo",
+      "imageUrl": "https://tumilanesa.com.ar/wp-content/uploads/2023/05/empanadas-pollo-jugosas.jpg",
+      "description": "Exquisitas empanadas de pollo",
+      "price": 750,
+      "quantity": 150
+    },
+    {
+      "category": "Entradas",
+      "id": "151a",
+      "name": "Empanadas de Pollo",
+      "imageUrl": "https://tumilanesa.com.ar/wp-content/uploads/2023/05/empanadas-pollo-jugosas.jpg",
+      "description": "Exquisitas empanadas de pollo",
+      "price": 750,
+      "quantity": 150
+    },
+    {
+      "category": "Entradas",
+      "id": "141a",
+      "name": "Empanadas de Pollo",
+      "imageUrl": "https://tumilanesa.com.ar/wp-content/uploads/2023/05/empanadas-pollo-jugosas.jpg",
+      "description": "Exquisitas empanadas de pollo",
+      "price": 750,
+      "quantity": 150
+    },
+    {
+      "category": "Entradas",
+      "id": "121a",
+      "name": "Empanadas de Pollo",
+      "imageUrl": "https://tumilanesa.com.ar/wp-content/uploads/2023/05/empanadas-pollo-jugosas.jpg",
+      "description": "Exquisitas empanadas de pollo",
+      "price": 750,
+      "quantity": 150
+    }
+
+  ]
+}
+

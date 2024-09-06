@@ -1,0 +1,13 @@
+ .map-h1{
+  color: #E5E5E5;
+ }
+  .contact-info {
+    font-size: 1rem;
+    color: #E5E5E5;
+  }
+  
+  @media (min-width: 768px) {
+    .map-iframe {
+      height: 450px;
+    }
+  }
