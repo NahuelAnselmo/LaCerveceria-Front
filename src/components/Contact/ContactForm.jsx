@@ -6,12 +6,10 @@ import {
   sendEmailToRestaurant,
 } from "../../utilities/sendEmail.js";
 
-import Input from "../ui/input/Input";
+import Input from "../ui/Input/Input.jsx";
 import Swal from "sweetalert2";
 import Map from "../Contact/Map";
 import "./ContacStyle.css";
-import InputLR from "../common/LogReg/InputLR.jsx";
-import Logo from "../common/Header/Logo.jsx";
 
 const ContactForm = () => {
   const {
@@ -70,14 +68,13 @@ const ContactForm = () => {
 
   return (
     <>
-      <Logo/>
       <form
         onSubmit={onSubmitRHF(handleSubmit)}
         className="form-container mt-2 text-center form-contacto"
       >
         <h2 className="form-h2">¡Mándanos tu consulta!</h2>
 
-        <InputLR
+        <Input
           error={errors.issue}
           label="Asunto"
           name="issue"
@@ -99,7 +96,7 @@ const ContactForm = () => {
           placeholder="Asunto"
           icon="bi bi-chat-left-heart"
         />
-        <InputLR
+        <Input
           error={errors.name}
           label="Nombre"
           name="name"
@@ -121,7 +118,7 @@ const ContactForm = () => {
           placeholder="Nombre"
           icon="uil uil-user"
         />
-        <InputLR
+        <Input
           error={errors.lastname}
           label="Apellido"
           name="lastname"
@@ -143,7 +140,7 @@ const ContactForm = () => {
           placeholder="Apellido"
           icon="bi bi-person-raised-hand"
         />
-        <InputLR
+        <Input
           error={errors.email}
           label="Email"
           name="email"
