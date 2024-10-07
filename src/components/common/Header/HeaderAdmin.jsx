@@ -1,45 +1,33 @@
-
 import { Link } from "react-router-dom";
 import { useSession } from "../../../constans/Stores/useSesion";
-import Swal from 'sweetalert2/';
-import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+
 const HeaderAdmin = () => {
-  const {logout} = useSession()
-  const navigate = useNavigate(); 
-  const handleLogout = async () =>{
-    
+  const { logout } = useSession();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
     const action = await Swal.fire({
       icon: "question",
-      title: "atencion",
-      text: "estas seguro de que desea cerrar sesion?",
-      confirmButtonText: "Si, cerrar",
+      title: "Atención",
+      text: "¿Estás seguro de que deseas cerrar sesión?",
+      confirmButtonText: "Sí, cerrar",
       showCancelButton: true,
-      cancelButtonText: "No, aun no ",
-      color: "#121212"
-    })
-    if(action.isConfirmed){
-      logout()
-      navigate('/');
+      cancelButtonText: "No, aún no",
+    });
 
+    if (action.isConfirmed) {
+      logout();
+      navigate('/');
     }
-  }
+  };
+
   return (
-    <div>
-      <Link className="navbar-brand py-4" to="/admin" >
-        <h5 className="py-2">Administración de productos</h5>
-      </Link>
-      <Link className="navbar-brand py-4" to="/404">
-        <h5>Gráficos de ventas</h5>
-      </Link>
-      <Link className="navbar-brand py-4" to="/404">
-        <h5>Administración de clientes</h5>
-      </Link>
-      <Link className="navbar-brand py-4" to="/404">
-        <h5>Administración administrativa</h5>
-      </Link>
-      <div className="text-end p-4">
-        <button className="button-cerrar"  onClick={handleLogout}>Cerrar Sesión</button>
-      </div>
+    <div className="admin-menu">
+      <Link to="/admin">Administrar productos</Link>
+      <Link to="/ventas">Gráficos de ventas</Link>
+      <button className="btn-cerrar" onClick={handleLogout}>Cerrar Sesión</button>
     </div>
   );
 };

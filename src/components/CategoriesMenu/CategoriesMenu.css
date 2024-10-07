@@ -1,0 +1,32 @@
+.categories-menu {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .category-item {
+    padding: 1rem;
+  }
+  
+  .category-image {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .slick-prev, .slick-next {
+    color: #f8c24e; /* Color dorado para las flechas de navegación */
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  p {
+    color: #888;
+  }
+  

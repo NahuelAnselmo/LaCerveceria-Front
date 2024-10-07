@@ -1,0 +1,24 @@
+.footer {
+  background-image: url('../../../assets/ImgIntegrantes/footer.jpg');
+  background-size: cover;
+  color: white;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.contact-info, .sucursales, .social-links {
+  text-align: center;
+}
+
+.social-links img {
+  width: 30px;
+  margin: 0 10px;
+}

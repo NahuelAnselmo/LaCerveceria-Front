@@ -1,0 +1,58 @@
+.hero-section {
+  background-image: url('../../assets/ImgIntegrantes/cerveceria.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 75vh;
+  display: flex;
+  justify-content: flex-start; /* Cambia el texto hacia la izquierda */
+  align-items: center;
+  padding-left: 50px; /* Ajusta este valor según el espaciado que desees desde el borde izquierdo */
+  color: white;
+  position: relative;
+}
+
+/* Overlay oscuro */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según sea necesario */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: left; /* Alinea el texto completamente a la izquierda */
+  max-width: 600px; /* Limita el ancho del texto para que no ocupe todo el espacio */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.hero-content h2 {
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+/* Ajustes Responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 60vh; /* Menor altura en pantallas pequeñas */
+    padding-left: 20px; /* Reduce el espaciado desde el borde izquierdo en móviles */
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem; /* Ajusta el tamaño del título en móviles */
+  }
+
+  .hero-content h2 {
+    font-size: 1.5rem; /* Ajusta el tamaño del subtítulo en móviles */
+  }
+}
