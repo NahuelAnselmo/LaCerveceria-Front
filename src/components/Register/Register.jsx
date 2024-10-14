@@ -159,6 +159,9 @@ const RegisterPage = () => {
       <p className="login-link">
         ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión aquí</Link>
       </p>
+
+      {/* Botón para volver al inicio */}
+      <button onClick={() => navigate('/')} className="btn btn-primary mt-3">Volver al inicio</button>
     </div>
   );
 };

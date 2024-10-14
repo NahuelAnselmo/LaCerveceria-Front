@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Input from '../ui/Input/Input'; // Componente Input personalizado
@@ -27,9 +27,9 @@ const LoginPage = () => {
       const result = await response.json();
 
       if (response.ok) {
-        // Guarda el token y redirige
+        // Guarda el token y redirige al inicio
         localStorage.setItem('token', result.token);
-        navigate('/dashboard'); // Redirige al dashboard
+        navigate('/'); // Redirige al inicio
       } else {
         console.error(result.message);
         alert(result.message); // Muestra el error
@@ -39,6 +39,32 @@ const LoginPage = () => {
       alert('Error en el servidor');
     }
     setLoading(false);
+  };
+
+  // Utiliza el token para acceder a rutas protegidas
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      fetch('http://localhost:3000/api/v1/some-protected-route', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`, // Incluye el token en los headers
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Datos protegidos:', data);
+      })
+      .catch((error) => {
+        console.error('Error en la ruta protegida:', error);
+      });
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Borra el token del almacenamiento local
+    navigate('/login'); // Redirige al login
   };
 
   return (
@@ -74,7 +100,9 @@ const LoginPage = () => {
         <div className="register-link">
           <p>¿No tienes cuenta? <a href="/register">Regístrate aquí</a></p>
         </div>
-      </form>
+      </form>   
+      {/* Botón para volver al inicio */}
+      <button onClick={() => navigate('/')} className="btn btn-primary">Volver al inicio</button>
     </div>
   );
 };
