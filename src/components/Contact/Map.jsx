@@ -11,7 +11,7 @@ const Map = () => {
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
-       <div className="contact-info mt-4">
+      <div className="contact-info mt-4">
         <p>Dirección: Gral. José María Paz 576, T4000 San Miguel de Tucumán, Tucumán</p>
         <p>Teléfono: +54 381 5783030</p>
         <p>WhatsApp: +54 381 5783030</p>
@@ -19,4 +19,5 @@ const Map = () => {
     </div>
   );
 };
+
 export default Map;

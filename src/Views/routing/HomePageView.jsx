@@ -10,8 +10,8 @@ const HomePage = () => {
     <div className="homepage">
       <HeroSection />
       <CategoriesMenu />
-      <AboutUs />
       <ContactForm />
+      <AboutUs />
     </div>
   );
 };
