@@ -77,6 +77,17 @@
   resize: none; /* Evita el redimensionado manual */
 }
 
+.input-group {
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: #ff4b2b;
+  font-size: 0.875em;
+  margin-top: 5px;
+}
+
+
 /* Estilo para dispositivos móviles */
 @media (max-width: 768px) {
   .contact-section {

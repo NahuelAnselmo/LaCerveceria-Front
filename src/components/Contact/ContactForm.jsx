@@ -19,13 +19,9 @@ const ContactForm = () => {
     reset,
   } = useForm();
 
-  const [resetCount, setResetCount] = useState(false);
-
   const handleSubmit = (data) => {
-    console.log(data);
-
     Swal.fire({
-      title: "Estas a punto de enviar un email",
+      title: "Estás a punto de enviar un email",
       text: "¿Estás seguro de enviarlo?",
       icon: "warning",
       showCancelButton: true,
@@ -35,8 +31,10 @@ const ContactForm = () => {
       confirmButtonColor: "#3085d6",
     }).then((result) => {
       if (result.isConfirmed) {
+        // Llama a la API para guardar los datos de contacto
         postContacts(data)
           .then(() => {
+            // Después de guardar en la base de datos, envía los correos
             return Promise.all([
               sendEmailToClient(data),
               sendEmailToRestaurant(data),
@@ -48,21 +46,20 @@ const ContactForm = () => {
               text: "Tu email fue enviado con éxito!",
               icon: "success",
             });
-            reset();
-            setResetCount(true);
-            setTimeout(() => setResetCount(false), 0);
+            reset(); // Resetea el formulario
           })
-          .catch(() => {
+          .catch((error) => {
+            console.error("Error al guardar los datos o enviar correos", error);
             Swal.fire({
               title: "Error",
-              text: "Hubo un error al enviar el email",
+              text: "Hubo un error al enviar el email o guardar los datos",
               icon: "error",
             });
           });
       }
     });
   };
-
+  
   const validateNoExtraSpaces = (value) =>
     !/\s{2,}/.test(value) || "No puede haber múltiples espacios consecutivos";
   const validateNoConsecutiveLetters = (value) =>
@@ -230,7 +227,6 @@ const ContactForm = () => {
               textarea
               placeholder="Escriba un mensaje"
               maxLength={500}
-              resetCount={resetCount}
             />
           </div>
 
