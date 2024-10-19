@@ -2,16 +2,14 @@ import { decodeJWT } from "../utilities/decodeJWT";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
-
 export const postLoginFn = async (data) => {
-  const res = await fetch(`${BACKEND_URL}/auth/login`, {
+  const res = await fetch(`${BACKEND_URL}/api/v1/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
   });
-  console.log(data, res);
 
   if (res.status === 204 || res.headers.get("content-length") === "0") {
     throw new Error("Respuesta vacía del servidor");
@@ -23,7 +21,7 @@ export const postLoginFn = async (data) => {
     throw new Error(resData.message || "Ocurrió un error");
   }
 
-  const token = resData.data;
+  const token = resData.token; // Ajustado para obtener el token correctamente
 
   if (!token) {
     throw new Error(resData.message || "Ocurrió un error");
@@ -31,36 +29,34 @@ export const postLoginFn = async (data) => {
 
   const userData = decodeJWT(token).user;
 
-  sessionStorage.setItem("token", token);
+  localStorage.setItem("token", token); // Cambiado a localStorage para mantener el token hasta cerrar sesión
 
   return userData;
 };
 
-
 export const postRegisterFn = async (data) => {
-  const res = await fetch(`${BACKEND_URL}/users`, {
+  const res = await fetch(`${BACKEND_URL}/api/v1/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      name: data.name,
-      dni: data.dni,
+      username: data.username,
       email: data.email,
       password: data.password,
     }),
   });
 
   if (!res.ok) {
-    throw new Error("Ocurrió un error al crear el usuario");
+    const errorData = await res.json();
+    throw new Error(errorData.message || "Ocurrió un error al crear el usuario");
   }
 
-  const userData = await postLoginFn({
+  // Redirigir al login después del registro exitoso
+  return await postLoginFn({
     email: data.email,
     password: data.password,
   });
-
-  return userData;
 };
 
 // PUT REGISTER FUNTION
@@ -70,7 +66,7 @@ export const putRegisterFn = async ([userId, updatedData]) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify(updatedData),
     });
@@ -94,7 +90,7 @@ export const fetchUserById = async (id) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
 
@@ -112,7 +108,7 @@ export const fetchUserById = async (id) => {
   }
 };
 
-// GET REGISTER FUNTION EMAIL CONTROL
+// GET REGISTER FUNCTION EMAIL CONTROL
 export const checkEmailExists = async (email) => {
   const res = await fetch(`${BACKEND_URL}/users/check-email?email=${email}`, {
     method: "GET",
