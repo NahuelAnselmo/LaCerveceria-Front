@@ -65,15 +65,49 @@ const CartModal = ({
         confirmButtonText: "Sí, confirmar",
         cancelButtonText: "Cancelar",
       });
-
+  
       if (isConfirmed) {
-        onConfirm(tableNumber, comment);
-        setTableNumber("");
-        setComment("");
-        setResetCount(true);
+        try {
+          await handleConfirmOrder(tableNumber, cart); // Llama a la función para confirmar el pedido
+          setTableNumber("");
+          setComment("");
+          setResetCount(true);
+          onClose(); // Cierra el modal después de confirmar
+        } catch (error) {
+          console.error('Error al confirmar el pedido', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Hubo un problema al confirmar tu pedido. Inténtalo de nuevo.',
+          });
+        }
       }
     }
   };
+
+  const handleConfirmOrder = async (tableNumber, cartItems) => {
+    try {
+      const response = await fetch('http://localhost:3000/api/reduce-stock', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ tableNumber, cartItems }),
+      });
+  
+      const data = await response.json();
+      if (response.ok) {
+        console.log('Stock actualizado correctamente');
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      console.error('Error al confirmar el pedido', error);
+      throw error; // Lanza el error para manejarlo en el modal
+    }
+  };
+  
+  
 
   const handleRemoveFromCart = async (id) => {
     const { isConfirmed } = await Swal.fire({
