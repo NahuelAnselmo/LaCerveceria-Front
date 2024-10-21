@@ -87,7 +87,7 @@ const CartModal = ({
 
   const handleConfirmOrder = async (tableNumber, cartItems) => {
     try {
-      const response = await fetch('http://localhost:3000/api/reduce-stock', {
+      const response = await fetch('/api/reduce-stock', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
