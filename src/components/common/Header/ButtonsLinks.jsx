@@ -1,7 +1,6 @@
 // src/components/common/Header/ButtonsLink.jsx
-import React from 'react';
 import { Link } from 'react-router-dom';
-import './buttonsLink.css'; // Crea este archivo para estilos
+import './buttonsLink.css'; 
 
 const ButtonsLink = () => {
   return (

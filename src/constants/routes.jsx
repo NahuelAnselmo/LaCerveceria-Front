@@ -27,23 +27,15 @@ export const router = createBrowserRouter([
             element: <></>,
           },
           {
-            path: "AboutUs",
-            element: <></>,
-          },
-          {
-            path: "Contact",
-            element: <></>,
+            path: "admin",
+            element: <AdminView />,
           },
         ],
       },
       {
-        path: "admin", // Ruta privada, solo accesible si está autenticado
+        path: "admin",
         element: <PrivateView />,
         children: [
-          {
-            path: "",
-            element: <AdminView />, // Vista protegida solo para usuarios autenticados
-          },
         ],
       },
     ],

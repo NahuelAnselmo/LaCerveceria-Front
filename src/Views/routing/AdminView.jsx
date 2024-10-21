@@ -79,7 +79,7 @@ const AdminView = () => {
 
   return (
     <div className="py-4">
-      <h2 className='text-white text-center mb-5'>Administrador de Productos</h2>
+      <h2 className='title-Admin text-center mb-5'>Administrador de Productos</h2>
       <ProductForm
         initialData={editingProduct}
         refreshProducts={refreshProducts}
