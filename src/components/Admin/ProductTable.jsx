@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 import Slider from "react-slick";
 import "./Admin.css";
 
-const AdminList = ({ products, onEdit, onDelete }) => {
+const ProductTable = ({ products, onEdit, onDelete }) => {
   const groupedProducts = (products || []).reduce((acc, product) => {
     if (!product || !product.category) {
       return acc;
@@ -82,7 +82,7 @@ const AdminList = ({ products, onEdit, onDelete }) => {
           <h3>{category}</h3>
           <Slider {...settings}>
             {groupedProducts[category].map((product) => (
-              <div key={product._id} className="px-2"> 
+              <div key={product.id} className="px-2"> 
                 <div className="card h-100">
                   <img
                     alt={product.name}
@@ -93,6 +93,7 @@ const AdminList = ({ products, onEdit, onDelete }) => {
                     <h5 className="card-title text-sm">{product.name}</h5>
                     <p className="card-text text-sm">{product.description}</p>
                     <p className="card-text text-sm">Precio: ${product.price}</p>
+                    <p className="card-text text-sm">Stock: {product.stock}</p>
                     <p className="card-text text-sm">
                       Disponible: {product.available ? "Sí" : "No"}
                     </p>
@@ -121,7 +122,7 @@ const AdminList = ({ products, onEdit, onDelete }) => {
   );
 };
 
-AdminList.propTypes = {
+ProductTable.propTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -130,7 +131,7 @@ AdminList.propTypes = {
       price: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       available: PropTypes.bool.isRequired,
-      ingredients: PropTypes.string.isRequired,
+      ingredients: PropTypes.string,
       category: PropTypes.string.isRequired,
     })
   ).isRequired,
@@ -138,4 +139,4 @@ AdminList.propTypes = {
   onDelete: PropTypes.func.isRequired,
 };
 
-export default AdminList;
+export default ProductTable;

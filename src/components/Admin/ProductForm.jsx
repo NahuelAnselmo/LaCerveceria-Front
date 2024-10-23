@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
-import "./Admin.css";
+import "./Admin.css"; 
 
 const ProductForm = ({ initialData, onSubmit, onCancel }) => {
   const [formData, setFormData] = useState({
@@ -42,10 +42,7 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
     e.preventDefault();
 
     try {
-      // Enviar los datos y ejecutar el onSubmit que viene del padre
       onSubmit(formData);
-
-      // Mostrar alerta de éxito con SweetAlert2
       Swal.fire({
         icon: "success",
         title: "Producto guardado con éxito",
@@ -53,7 +50,6 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
         timer: 2000,
       });
 
-      // Limpiar el formulario
       setFormData({
         name: "",
         imageUrl: "",
@@ -64,10 +60,8 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
         category: "burgers",
       });
 
-      // Volver al inicio de la página
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
-      // Mostrar alerta de error si ocurre un problema
       Swal.fire({
         icon: "error",
         title: "Error al guardar el producto",
@@ -78,24 +72,26 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
 
   return (
     <form className="admin-form" onSubmit={handleSubmit}>
-      <div className="form-group ">
-        <input
-          placeholder="Nombre del Producto"
-          required
-          className="form-style"
-          id="name"
-          name="name"
-          type="text"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        <i className={`input-icon bi bi-basket`}></i>
-      </div>
-      <div className="py-2">
+      <div className="form-row">
+        <div className="form-group col-sm-6">
+          <input
+            placeholder=" "
+            required
+            className="form-style"
+            id="name"
+            name="name"
+            type="text"
+            value={formData.name}
+            onChange={handleChange}
+          />
+          <label className="labelFrom" htmlFor="name">Nombre del Producto</label>
+          <i className="input-icon bi bi-basket"></i>
+        </div>
+
         <div className="form-group">
           <input
             required
-            placeholder="Imagen (URL)"
+            placeholder=" "
             className="form-style"
             id="imageUrl"
             name="imageUrl"
@@ -103,71 +99,72 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
             value={formData.imageUrl}
             onChange={handleChange}
           />
-          <i className={`input-icon bi bi-image-fill`}></i>
+          <label className="labelFrom" htmlFor="imageUrl">Imagen (URL)</label>
+          <i className="input-icon bi bi-image-fill"></i>
         </div>
       </div>
-
-      <div className="form-group">
-        <input
-          required
-          placeholder="Precio"
-          className="form-style"
-          id="price"
-          name="price"
-          type="text"
-          value={formData.price}
-          onChange={handleChange}
-        />
-        <i className={`input-icon bi bi-currency-euro`}></i>
-      </div>
-
-      <div className="form-group mt-3 mb-3">
-        <input
-          required
-          placeholder="Stock"
-          className="form-style"
-          id="stock"
-          name="stock"
-          type="number"
-          value={formData.stock}
-          onChange={handleChange}
-        />
-       <i className={'input-icon fa-solid fa-database mt-2'}></i>
-      </div>
-
-      <div className="py-2">
+      <div className="form-row">
         <div className="form-group">
-          <textarea
+          <input
             required
-            className="form-style textarea-contacto"
-            id="description"
-            name="description"
-            value={formData.description}
+            placeholder=" "
+            className="form-style"
+            id="price"
+            name="price"
+            type="text"
+            value={formData.price}
             onChange={handleChange}
           />
-          <i className={`input-icon bi bi-text-left `}></i>
+          <label className="labelFrom" htmlFor="price">Precio</label>
+          <i className="input-icon bi bi-currency-euro"></i>
         </div>
-      </div>
-      <div className="form-style">
-        <div className="form-check-inline d-flex justify-content-evenly">
-          <div className="mx-3">
-            <input
-              checked={formData.available}
-              className="form-check-input"
-              id="available"
-              name="available"
-              type="checkbox"
-              onChange={handleChange}
-            />
-          </div>
-          <label htmlFor="available" className="form-check-label">
-            {formData.available ? "Disponible" : "No disponible"}
-          </label>
+
+        <div className="form-group">
+          <input
+            required
+            placeholder=" "
+            className="form-style"
+            id="stock"
+            name="stock"
+            type="number"
+            value={formData.stock}
+            onChange={handleChange}
+          />
+          <label className="labelFrom" htmlFor="stock">Stock</label>
+          <i className="input-icon fa-solid fa-database"></i>
         </div>
       </div>
 
       <div className="form-group">
-        <label htmlFor="category">Categoría</label>
+        <textarea
+          required
+          className="form-style textarea-contacto"
+          id="description"
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          placeholder=" "
+        />
+        <label className="labelFrom" htmlFor="description">Descripción</label>
+        <i className="input-icon bi bi-text-left"></i>
+      </div>
+
+      <div className="form-check-inline">
+        <input
+          checked={formData.available}
+          className="form-check-input"
+          id="available"
+          name="available"
+          type="checkbox"
+          onChange={handleChange}
+        />
+        <label htmlFor="available" className="form-check-label">
+          {formData.available ? "Disponible" : "No disponible"}
+        </label>
+      </div>
+
+      <div className="form-group">
+        <label  htmlFor="category" className="labelCategori">Categoría</label>
         <select
           className="form-style"
           id="category"
@@ -175,19 +172,20 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
           value={formData.category}
           onChange={handleChange}
         >
-          <option value="Burgers">Burgers</option>
-          <option value="entrantes">Entradas</option>
+          <option value="burgers">Burgers</option>
+          <option value="entrantes">Entrantes</option>
           <option value="tragos">Tragos</option>
           <option value="bebidas">Bebidas</option>
           <option value="cervezas">Cervezas</option>
         </select>
       </div>
-      <div className="form-group pt-3 mt-auto d-flex justify-content-around ">
+
+      <div className=" d-flex justify-content-around">
         <button className="button-card" type="submit">
           {initialData ? "Actualizar" : "Guardar Producto"}
         </button>
         {initialData && (
-          <button className="btn text-white" type="button" onClick={onCancel}>
+          <button className="button-card bg-danger btn " type="button" onClick={onCancel}>
             Cancelar
           </button>
         )}

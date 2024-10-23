@@ -1,85 +1,68 @@
-.title-Admin{
+/* Estilos globales */
+.AdminViewcss {
+  background-color: #6e6e6e;
+}
+
+.title-Admin {
   margin-top: 200px;
+  color: #242424;
 }
 
 .admin-form {
-  background-color: #1c1c1c;
+  background-image: url(https://barlacerveceria.cl/wp-content/uploads/2023/04/fondo2-1.jpg);
   width: 100%;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(252, 252, 252, 0.5);
   margin-bottom: 220px;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
-.admin-form h2 {
-  color: #d4b3ff;
-  margin-bottom: 20px;
-}
-
-
-label {
+/* Floating label y formularios */
+.form-group {
   display: flex;
-  margin-bottom: 5px;
-  color: #d4b3ff;
-}
-
-label:focus,
-label:active {
-  color: #d4b3ff;
-}
-
-.product-table {
+  margin-bottom: 20px;
+  position: relative;
   width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
 }
 
-.product-table th,
-.product-table td {
-  border: 1px solid #bb86fc;
+.form-group .labelFrom {
+  position: absolute;
+  top: 50%;
+  left: 45px;
+  transform: translateY(-50%);
+  transition: 0.3s;
+  pointer-events: none; 
+  color: #1d1b1b;
+}
+
+input:focus + .labelFrom,
+textarea:focus + .labelFrom,
+input:not(:placeholder-shown) + .labelFrom,
+textarea:not(:placeholder-shown) + .labelFrom {
+  top: -10px;
+  left: 10px;
+  font-size: 16px;
+  color: #eb1212;
+}
+
+input, select, textarea {
+  width: 100%;
   padding: 10px;
-  text-align: center;
-  color: #fff;
-}
-
-.product-table th {
-  background-color: #2a2a2a;
-}
-
-.product-table td {
-  background-color: #1f1f1f;
-}
-
-.product-table tr:hover {
-  background-color: #2a2a2a;
-}
-
-textarea {
-  resize: none;
-  height: 100px;
-}
-
-.error-message {
-  color: #e74c3c;
-  margin-top: -10px;
-  margin-bottom: 10px;
-  font-size: 0.875em;
-}
-
-.edit-button,
-.delete-button,
-.view-button {
-  cursor: pointer;
-  margin: 0 5px;
-  padding: 5px;
-  border: none;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding-left: 40px; /* Espacio para el icono */
 }
+
+input.form-style, select.form-style, textarea.form-style {
+  padding-left: 38px; /* Espacio para el icono */
+}
+
 input[type="text"].error,
 input[type="url"].error,
 textarea.error,
@@ -87,95 +70,55 @@ select.error {
   border-color: #e74c3c;
 }
 
-input[type="text"].error:focus,
-input[type="url"].error:focus,
-textarea.error:focus,
-select.error:focus {
-  box-shadow: 0 0 8px #e74c3c;
-}
-
-#available {
-  appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            width: 30px;
-            height: 30px;
-            border: none;
-            position: relative;
-            cursor: pointer;
-            outline: none;
-            background-color: transparent;
-}
-
-
-#available::before {
-  content: '😥'; 
-  font-size: 24px;
+/* Íconos dentro del input */
+.form-group i {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 10px;
+  top: 50%; /* Centrado verticalmente */
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #3d3d3d;
 }
 
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
 
-#available:checked:checked::before {
-  content: '❤'; 
-  font-size: 24px;
-  
+.form-row .form-group {
+  flex: 1;
 }
 
 .form-check-inline {
   display: flex;
-  align-items: column;
-}
-
-.form-check-input {
-  margin-right: 5px; 
-}
-
-.edit-warning {
-  background-color: #ffeb3b;
-  color: #333;
-  padding: 10px;
-  text-align: center;
-  font-weight: bold;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 20px;
-  border-radius: 5px;
-} 
-
-.btn-danger {
-  background-color: #a4423a;
-  border: none;
 }
 
-.btn-warning {
-  background-color: #f5c542;
-  border: none;
+.form-check-inline .form-check-label {
+  order: 1;
+  font-size: 16px;
+  color: #1d1b1b;
 }
 
-.btn-info {
-  background-color: #8c71a4; 
-  border: none;
+.form-check-inline .form-check-input {
+  order: 2;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
-
-.btn i {
-  color: black; 
+.labelCategori{
+  font-size: 16px;
+  color: #1d1b1b;
+  margin-right: 15px;
+  margin-top: 10px;
 }
-
-.btn-danger i {
-  color: black; 
-}
-
-.btn-warning i {
-  color: black; 
-}
-
-.btn-info i {
-  color: black; 
-}
-
-.active{
-  background-color: #8e44ad !important;
+select{
+  width: 20%;
 }
 
 @media (max-width: 1000px) {
