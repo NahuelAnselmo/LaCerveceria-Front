@@ -11,6 +11,7 @@ const CartModal = ({
   totalAmount,
   onClose,
   onRemoveFromCart,
+  onConfirm,
   tableNumber: initialTableNumber,
 }) => {
   const {
@@ -67,7 +68,6 @@ const CartModal = ({
       });
 
       if (isConfirmed) {
-        // Transformar el carrito para que coincida con el esquema de items
         const items = cart.map(item => ({
           productId: item.id, // Asegúrate de que 'item.id' sea el ObjectId que espera el esquema
           name: item.name,
@@ -84,20 +84,16 @@ const CartModal = ({
         };
     
         console.log("Datos del pedido:", orderData); // Para depuración
-    
-        try {
+        
           const newOrder = await createOrder(orderData);
           // Procesa el nuevo pedido como necesites aquí
-          console.log('Nuevo pedido creado:', newOrder);
-    
+          console.log('Nuevo pedido creado:', newOrder);    
           // Resetear campos si es necesario
+          onConfirm(tableNumber, comment, cart, totalAmount );
           setTableNumber("");
           setComment("");
-          setResetCount(true);
-        } catch (error) {
-          console.error("Error al crear el pedido:", error);
-          // Muestra un mensaje de error si es necesario
-        }
+          setResetCount(true);        
+
       }
     }
   };
