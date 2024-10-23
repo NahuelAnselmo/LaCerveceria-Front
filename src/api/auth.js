@@ -3,7 +3,7 @@ import { decodeJWT } from "../utilities/decodeJWT";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const postLoginFn = async (data) => {
-  const res = await fetch(`${BACKEND_URL}/api/v1/login`, {
+  const res = await fetch(`${BACKEND_URL}/api/v1/auth/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export const postLoginFn = async (data) => {
 };
 
 export const postRegisterFn = async (data) => {
-  const res = await fetch(`${BACKEND_URL}/api/v1/register`, {
+  const res = await fetch(`${BACKEND_URL}/api/v1/auth/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
