@@ -4,13 +4,13 @@ import "../FooterNavbar/cartModal.css";
 import Swal from "sweetalert2";
 import Input from "../ui/Input/Input";
 import { useForm } from "react-hook-form";
+import { createOrder } from "../../api/cart.js";
 
 const CartModal = ({
   cart,
   totalAmount,
   onClose,
   onRemoveFromCart,
-  onConfirm,
   tableNumber: initialTableNumber,
 }) => {
   const {
@@ -65,49 +65,42 @@ const CartModal = ({
         confirmButtonText: "Sí, confirmar",
         cancelButtonText: "Cancelar",
       });
-  
+
       if (isConfirmed) {
+        // Transformar el carrito para que coincida con el esquema de items
+        const items = cart.map(item => ({
+          productId: item.id, // Asegúrate de que 'item.id' sea el ObjectId que espera el esquema
+          name: item.name,
+          quantity: item.quantity,
+          price: item.price,
+          total: item.price * item.quantity, // Calcular el total por cada item
+        }));
+    
+        const orderData = {
+          tableNumber,
+          items, // Usa el nuevo array de items
+          totalAmount,
+          comment,
+        };
+    
+        console.log("Datos del pedido:", orderData); // Para depuración
+    
         try {
-          await handleConfirmOrder(tableNumber, cart); // Llama a la función para confirmar el pedido
+          const newOrder = await createOrder(orderData);
+          // Procesa el nuevo pedido como necesites aquí
+          console.log('Nuevo pedido creado:', newOrder);
+    
+          // Resetear campos si es necesario
           setTableNumber("");
           setComment("");
           setResetCount(true);
-          onClose(); // Cierra el modal después de confirmar
         } catch (error) {
-          console.error('Error al confirmar el pedido', error);
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Hubo un problema al confirmar tu pedido. Inténtalo de nuevo.',
-          });
+          console.error("Error al crear el pedido:", error);
+          // Muestra un mensaje de error si es necesario
         }
       }
     }
   };
-
-  const handleConfirmOrder = async (tableNumber, cartItems) => {
-    try {
-      const response = await fetch('/api/reduce-stock', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ tableNumber, cartItems }),
-      });
-  
-      const data = await response.json();
-      if (response.ok) {
-        console.log('Stock actualizado correctamente');
-      } else {
-        throw new Error(data.message);
-      }
-    } catch (error) {
-      console.error('Error al confirmar el pedido', error);
-      throw error; // Lanza el error para manejarlo en el modal
-    }
-  };
-  
-  
 
   const handleRemoveFromCart = async (id) => {
     const { isConfirmed } = await Swal.fire({
