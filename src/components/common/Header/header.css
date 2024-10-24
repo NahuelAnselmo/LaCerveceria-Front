@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 10px 20px; /* Ajuste adicional para un header aún más pequeño */
+  padding: 10px 20px;
   background-color: transparent;
   transition: background-color 0.3s ease, padding 0.3s ease;
   z-index: 1000;
@@ -16,17 +16,17 @@
 
 .header.scrolled {
   background-color: white;
-  padding: 5px 20px; /* Reducido para mantener proporción al hacer scroll */
+  padding: 5px 20px;
 }
 
 .logo {
-  width: 150px; /* Aumentado para un logo más grande antes del scroll */
+  width: 150px;
   height: auto;
   transition: width 0.3s ease;
 }
 
 .header.scrolled .logo {
-  width: 100px; /* Tamaño reducido al hacer scroll */
+  width: 100px;
   filter: brightness(0);
 }
 
@@ -35,12 +35,12 @@
   display: flex;
   gap: 30px;
   justify-content: flex-start;
-  padding-left: 100px; /* Ajuste para separar más los enlaces del logo */
+  padding-left: 100px;
   align-items: center;
   flex-grow: 1;
 }
 .nav-links.desktop a {
-  color: white; /* Enlaces en blanco por defecto */
+  color: white;
   font-size: 0.9rem;
   text-transform: uppercase;
   text-decoration: none;
@@ -49,31 +49,33 @@
 
 .nav-links.desktop a:nth-last-child(-n+2) {
   margin-left: auto;
+  margin-top: 1px;
 }
 
 .header.scrolled .nav-links.desktop a {
-  color: black; /* Cambia a negro al hacer scroll */
+  color: black;
 }
 
 /* Botones de menú e ingresar */
 .nav-links.desktop .btn {
-  background-color: #f8c24e; /* Color dorado */
+  background-color: #f8c24e;
   border: none;
   padding: 10px 20px;
   color: black;
   font-weight: bold;
   text-transform: uppercase;
-  margin-left: 0; /* Eliminado el espacio entre los botones para que estén juntos */
   transition: background-color 0.3s, transform 0.3s;
   cursor: pointer;
+  margin-left: 0;
 }
 
-.nav-links.desktop .btn + .btn {
-  margin-left: 10px; /* Espacio solo entre los botones */
+/* Ajuste específico para aplicar margen solo entre ciertos botones */
+.nav-links.desktop .btn:not(.header-user-btn) + .btn:not(.header-user-btn) {
+  margin-left: 10px; /* Espacio solo entre botones que no son el header user */
 }
 
 .nav-links.desktop .btn:hover {
-  background-color: #e0b800; /* Color dorado más oscuro al hacer hover */
+  background-color: #e0b800;
   transform: scale(1.05);
 }
 
@@ -82,14 +84,14 @@
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 20px; /* Tamaño reducido del ícono */
+  width: 20px;
   height: 16px;
   cursor: pointer;
 }
 
 .hamburger .bar {
   width: 100%;
-  height: 2px; /* Reducido para hacer las barras más delgadas */
+  height: 2px;
   background-color: #f8c24e;
   transition: all 0.3s ease-in-out;
 }
@@ -115,7 +117,7 @@
 
 .nav-links.mobile a {
   color: #fff;
-  font-size: 1.1rem; /* Reducido para hacer el texto más pequeño */
+  font-size: 1.1rem;
   margin-bottom: 20px;
   text-decoration: none;
 }
@@ -125,7 +127,7 @@
   position: absolute;
   top: 20px;
   right: 30px;
-  font-size: 1.5rem; /* Tamaño reducido del botón de cerrar */
+  font-size: 1.5rem;
   color: #fff;
   background: none;
   border: none;

@@ -49,8 +49,10 @@ const LoginPage = () => {
       localStorage.setItem('token', token);
       console.log("Token almacenado en localStorage:", token);
 
-      // Redirigir al inicio
+      // Redirigir al inicio y recargar la página para actualizar el header
       navigate('/');
+      window.location.reload();
+      
     } catch (error) {
       console.error('Error en el servidor:', error);
       alert('Error en el servidor');

@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { decodeJWT } from "../../utilities/decodeJWT";
 
 export const useSession = create((set) => {
+  // Inicializar estado con valores del localStorage
   const token = localStorage.getItem("token");
   let user = null;
   let isLoggedIn = false;

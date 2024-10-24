@@ -8,7 +8,7 @@ import { useSession } from '../../../constans/Stores/useSesion';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isLoggedIn, user } = useSession(); // Trae el estado de la sesión
+  const { isLoggedIn, user, login } = useSession(); // Trae el estado de la sesión
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,10 +21,20 @@ const Header = () => {
     };
   }, []);
 
-  // Asegúrate de suscribirte a los cambios de `isLoggedIn` y `user`
+  // Detectar cambios en el localStorage del token para recargar la sesión
   useEffect(() => {
-    console.log("Cambio en la sesión:", isLoggedIn, user);
-  }, [isLoggedIn, user]);
+    const handleStorageChange = () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        login(token); // Actualiza el estado de sesión si hay un nuevo token
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, [login]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

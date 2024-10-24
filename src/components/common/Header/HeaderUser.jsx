@@ -1,16 +1,15 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { useSession } from '../../../constans/Stores/useSesion';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { FaUserCircle } from 'react-icons/fa'; // Icono de usuario
+
 import './HeaderUser.css';
 
 const HeaderUser = () => {
   const { user, logout } = useSession(); // Accede al estado de la sesión aquí
   const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log("Cambio detectado en la sesión:", user);
-  }, [user]);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = async () => {
     const action = await Swal.fire({
@@ -28,18 +27,19 @@ const HeaderUser = () => {
     }
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <div className="user-menu">
-      {user ? (
-        <>
+    <div className="header-user-container">
+      <FaUserCircle className="user-icon" onClick={toggleMenu} />
+      {menuOpen && (
+        <div className="user-menu">
           <h2>Bienvenido, {user?.username}</h2>
-          <div className="d-flex justify-content-between">
-            <button className="btn btn-dark">Editar Usuario</button>
-            <button className="btn-cerrar" onClick={handleLogout}>Cerrar Sesión</button>
-          </div>
-        </>
-      ) : (
-        <h2>Iniciando sesión...</h2>
+          <button className="btn btn-edit">Editar Usuario</button>
+          <button className="btn btn-logout" onClick={handleLogout}>Cerrar Sesión</button>
+        </div>
       )}
     </div>
   );
