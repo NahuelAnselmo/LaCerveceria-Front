@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../assets/ImgIntegrantes/logo.png'; // Asegúrate de que la ruta sea correcta
+import logo from '../../../assets/ImgIntegrantes/logo.png';
 import './Header.css';
+import HeaderUser from '../Header/HeaderUser';
+import { useSession } from '../../../constans/Stores/useSesion';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isLoggedIn, user } = useSession(); // Trae el estado de la sesión
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -21,6 +20,11 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Asegúrate de suscribirte a los cambios de `isLoggedIn` y `user`
+  useEffect(() => {
+    console.log("Cambio en la sesión:", isLoggedIn, user);
+  }, [isLoggedIn, user]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -38,7 +42,14 @@ const Header = () => {
           <Link to="/AboutUs">Nosotros</Link>
           <Link to="/Contact">Contacto</Link>
           <Link to="/menu" className="btn btn-primary">Menu</Link>
-          <Link to="/login" className="btn btn-primary">Ingresar</Link>
+
+          {!isLoggedIn && (
+            <Link to="/login" className="btn btn-primary">Ingresar</Link>
+          )}
+
+          {isLoggedIn && user && (
+            <HeaderUser user={user} />
+          )}
         </nav>
 
         <div className={`hamburger ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
@@ -49,12 +60,19 @@ const Header = () => {
 
         {/* Menú para móviles */}
         <nav className={`nav-links mobile ${isMenuOpen ? 'open' : ''}`}>
-          <button className="close-btn" onClick={toggleMenu}>&times;</button> {/* Botón de cerrar */}
+          <button className="close-btn" onClick={toggleMenu}>&times;</button>
           <Link to="/" onClick={toggleMenu}>Inicio</Link>
           <Link to="/AboutUs" onClick={toggleMenu}>Nosotros</Link>
           <Link to="/Contact" onClick={toggleMenu}>Contacto</Link>
           <Link to="/menu" className="btn btn-primary" onClick={toggleMenu}>Menu</Link>
-          <Link to="/login" className="btn btn-primary" onClick={toggleMenu}>Ingresar</Link>
+
+          {!isLoggedIn && (
+            <Link to="/login" className="btn btn-primary" onClick={toggleMenu}>Ingresar</Link>
+          )}
+
+          {isLoggedIn && user && (
+            <HeaderUser user={user} />
+          )}
         </nav>
       </div>
     </header>

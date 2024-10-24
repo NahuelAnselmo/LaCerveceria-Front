@@ -1,0 +1,21 @@
+.user-menu {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 300px;
+  }
+  
+  .btn-cerrar {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-cerrar:hover {
+    background-color: darkred;
+  }
+  
