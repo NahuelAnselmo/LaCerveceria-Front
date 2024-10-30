@@ -78,37 +78,52 @@
   background-color: #e0b800;
   transform: scale(1.05);
 }
-
-/* Mobile menu */
+/* Mobile menu button (hamburger) */
 .hamburger {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 20px;
-  height: 16px;
+  width: 30px;
+  height: 22px;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .hamburger .bar {
   width: 100%;
-  height: 2px;
-  background-color: #f8c24e;
+  height: 3px;
+  background-color: #f8c24e; /* Color dorado para las barras */
+  border-radius: 2px;
   transition: all 0.3s ease-in-out;
 }
 
+.hamburger.open .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mobile menu */
 .nav-links.mobile {
   display: none;
   position: fixed;
   top: 0;
   right: -100%;
-  width: 80%;
+  width: 60%;
   height: 100vh;
-  background-color: #000;
-  justify-content: center;
-  align-items: flex-start;
-  padding-left: 30px;
+  background-color: #fff; /* Fondo blanco */
+  justify-content: center; /* Centrar los elementos verticalmente */
+  align-items: center; /* Alinear al centro horizontalmente */
+  padding: 40px 20px; /* Ajustar el espaciado superior */
   transition: right 0.3s ease-in-out;
   flex-direction: column;
+  z-index: 999;
 }
 
 .nav-links.mobile.open {
@@ -116,19 +131,38 @@
 }
 
 .nav-links.mobile a {
-  color: #fff;
-  font-size: 1.1rem;
-  margin-bottom: 20px;
+  color: #000; /* Color negro para los enlaces */
+  font-size: 1.3rem; /* Tamaño de fuente ajustado */
+  margin-bottom: 30px; /* Aumentar el espaciado entre enlaces */
   text-decoration: none;
+  font-weight: bold;
+}
+
+/* Botones de menú e ingresar en móvil */
+.nav-links.mobile .btn {
+  background-color: #f8c24e; /* Fondo dorado */
+  color: #000; /* Texto negro */
+  border: none;
+  padding: 10px 40px; /* Ajuste de tamaño para un mejor aspecto */
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+  margin-bottom: 20px; /* Ajuste de espaciado */
+  border-radius: 5px; /* Redondear los bordes del botón */
+}
+
+.nav-links.mobile .btn:hover {
+  background-color: #e0b800; /* Un poco más oscuro al pasar el mouse */
 }
 
 /* Botón de cerrar en menú móvil */
 .close-btn {
   position: absolute;
   top: 20px;
-  right: 30px;
-  font-size: 1.5rem;
-  color: #fff;
+  right: 20px;
+  font-size: 2rem;
+  color: #f8c24e; /* Color dorado */
   background: none;
   border: none;
   cursor: pointer;
