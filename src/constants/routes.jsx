@@ -8,6 +8,7 @@ import AboutUsView from "../Views/routing/AboutUsView";
 import ContactView from "../Views/routing/ContactView";
 import Error404View from "../Views/routing/Error404View";
 import AdminView from "../Views/routing/AdminView";
+import PublicMenuView from "../Views/routing/PublicMenuView";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
         path: "",
         element: <PrivateView />,
         children: [
+          {
+            path: "Publicmenu",
+            element: <PublicMenuView />,
+          }
           
         ],
       },
