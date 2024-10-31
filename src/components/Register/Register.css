@@ -155,7 +155,6 @@ button[type="submit"][disabled] {
 /* Responsivo para pantallas pequeñas */
 @media (max-width: 600px) {
   .register-page {
-    width: 90%;
     max-width: 100%;
   }
 
