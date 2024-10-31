@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { getProductsFn, createProduct, updateProduct, deleteProduct } from '../../api/products.js';
-
 import ProductForm from '../../components/Admin/ProductForm'
 import ProductTable from '../../components/Admin/ProductTable'
 
@@ -78,7 +77,7 @@ const AdminView = () => {
   };
 
   return (
-    <div className="py-4">
+    <div className="py-4 AdminViewcss">
       <h2 className='title-Admin text-center mb-5'>Administrador de Productos</h2>
       <ProductForm
         initialData={editingProduct}

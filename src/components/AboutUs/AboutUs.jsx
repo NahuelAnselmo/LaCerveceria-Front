@@ -13,7 +13,7 @@ const AboutUs = () => {
     },
     {
       name: 'Nahuel Anselmo',
-      description: 'Tengo 29 años, me gusta mucho la programación, viajar y jugar al voley.',
+      description: 'Tengo 27 años, me gusta mucho la programación, viajar y jugar al voley',
       image: NahuelAnselmo,
     },
     {
