@@ -13,7 +13,7 @@ const LoginPage = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/api/v1/login', {
+      const response = await fetch('http://localhost:3000/api/v1/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -24,16 +24,35 @@ const LoginPage = () => {
         }),
       });
 
+      // Verificar si la respuesta fue exitosa
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error del servidor:", errorData.message);
+        alert(errorData.message);
+        setLoading(false);
+        return;
+      }
+
       const result = await response.json();
 
-      if (response.ok) {
-        // Guarda el token y redirige al inicio
-        localStorage.setItem('token', result.token);
-        navigate('/'); // Redirige al inicio
-      } else {
-        console.error(result.message);
-        alert(result.message); // Muestra el error
+      // Verificar si el token existe en la respuesta
+      const token = result?.data?.token || result?.token;
+
+      if (!token || token === "undefined" || token === "null") {
+        console.error("Token inválido:", token);
+        alert("Error al iniciar sesión. Token inválido.");
+        setLoading(false);
+        return;
       }
+
+      // Almacenar el token en localStorage
+      localStorage.setItem('token', token);
+      console.log("Token almacenado en localStorage:", token);
+
+      // Redirigir al inicio y recargar la página para actualizar el header
+      navigate('/');
+      window.location.reload();
+      
     } catch (error) {
       console.error('Error en el servidor:', error);
       alert('Error en el servidor');

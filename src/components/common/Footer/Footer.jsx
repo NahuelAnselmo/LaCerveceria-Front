@@ -1,19 +1,22 @@
-import './Footer.css';
+import './Footer.css'; 
 import logo from "../../../assets/ImgIntegrantes/logo.png";
+import SocialIcons from "./SocialIcons";
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-content">
-        <img src={logo} alt="Logo La Cervecería" />
-        <div className="contact-info">
-          <p>Contactos: +56 9 82730796</p>
-          <p>Email: paola@barlacerveceria.cl</p>
+      <div className="footer-container">
+        <div className="footer-logo">
+          <img src={logo} alt="Logo La Cervecería" />
         </div>
-        <div className="social-links">
-          <a href="#"><img src="/assets/facebook.png" alt="Facebook" /></a>
-          <a href="#"><img src="/assets/instagram.png" alt="Instagram" /></a>
-          <a href="#"><img src="/assets/whatsapp.png" alt="WhatsApp" /></a>
+        <div className="footer-info">
+          <div className="contact-info">
+            <h4>Contactos</h4>
+            <p>Email: Lacerveceriatucu@gmail.com</p>
+          </div>
+        </div>
+        <div className="footer-social">
+          <SocialIcons />
         </div>
       </div>
     </footer>

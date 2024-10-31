@@ -1,24 +1,129 @@
 .footer {
+  position: relative;
+  color: white;
+  padding: 80px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url('../../../assets/ImgIntegrantes/footer.jpg');
   background-size: cover;
-  color: white;
-  padding: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.3); /* Reduce la luminosidad para oscurecer el fondo */
+  z-index: -1;
+}
+
+.footer-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
   width: 100%;
+  max-width: 1400px;
+  gap: 60px;
+  z-index: 1; /* Asegúrate de que el contenido esté por encima del fondo */
 }
 
-.contact-info, .sucursales, .social-links {
+.footer-logo {
+  flex: 1;
   text-align: center;
 }
 
-.social-links img {
-  width: 30px;
+.footer-logo img {
+  width: 200px;
+  height: auto;
+  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.8));
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer-logo img:hover {
+  transform: scale(1.15);
+}
+
+.footer-info {
+  flex: 2;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.footer-info h4 {
+  font-size: 2.4rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.footer-info p {
+  margin: 12px 0;
+}
+
+.footer-social {
+  flex: 1;
+  text-align: center; /* Cambié de `right` a `center` para mejor alineación */
+}
+
+.footer-social .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Espacio entre los íconos */
+}
+
+.footer-social .social-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
   margin: 0 10px;
+  border-radius: 50%;
+  background-color: #ffffff; /* Fondo blanco */
+  color: #333; /* Color oscuro para los íconos (puede ser negro o gris oscuro) */
+  font-size: 20px;
+  transition: background-color 0.3s, transform 0.3s, color 0.3s, box-shadow 0.3s;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Añadir una sombra suave */
+}
+
+.footer-social .social-icon:hover {
+  background-color: #ffcc00; /* Fondo dorado al pasar el mouse */
+  color: #ffffff; /* Ícono blanco para un buen contraste sobre el dorado */
+  transform: scale(1.1); /* Agrandar ligeramente en hover */
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada en hover */
+}
+
+/* Responsividad */
+@media (max-width: 767px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-logo img {
+    width: 140px;
+    margin-bottom: 20px;
+  }
+
+  .footer-info {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .footer-social {
+    margin-top: 20px; /* Aumenté el margen superior en pantallas pequeñas */
+  }
+
+  .footer-social .social-icon {
+    width: 40px;
+    height: 40px; /* Tamaño reducido para pantallas pequeñas */
+  }
 }

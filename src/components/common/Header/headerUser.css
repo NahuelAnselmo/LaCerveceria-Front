@@ -1,0 +1,78 @@
+/* HeaderUser Container Styles */
+.header-user-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-right: 20px; /* Espacio entre el ícono y el borde derecho */
+}
+
+.user-icon {
+  font-size: 2.5rem; /* Tamaño más grande para que sea más claro */
+  color: #f8c24e; /* Manteniendo el color dorado */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.user-icon:hover {
+  transform: scale(1.15);
+  color: #e0b800; /* Color más oscuro al hacer hover */
+}
+
+/* User Menu Dropdown */
+.user-menu {
+  position: absolute;
+  top: 60px; /* Ajuste para separarlo del ícono */
+  right: 0;
+  background-color: white;
+  border-radius: 10px; /* Redondeado para un diseño más amigable */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15); /* Sombras suaves para resaltar el menú */
+  padding: 15px;
+  width: 220px;
+  z-index: 1001;
+  text-align: center;
+}
+
+.user-menu h2 {
+  font-size: 1rem;
+  margin-bottom: 15px; /* Más espacio para evitar que el texto esté tan junto */
+  color: black;
+  font-weight: normal; /* Menos énfasis para que no compita visualmente */
+}
+
+.user-menu .btn {
+  background-color: #f8c24e;
+  border: none;
+  padding: 10px 20px;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+  width: 100%; /* Hacer que el botón ocupe todo el ancho del contenedor */
+  margin-bottom: 10px; /* Espacio inferior entre botones */
+  border-radius: 5px; /* Redondeo para una apariencia más amigable */
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho del botón */
+  margin-left: 0 !important;
+}
+
+/* Ajuste específico para el botón de editar usuario */
+.user-menu .btn-edit {
+  background-color: #f8c24e;
+}
+
+
+.user-menu .btn:hover {
+  transform: scale(1.05);
+}
+
+.user-menu .btn-logout:hover {
+  background-color: #e63939;
+}
+
+@media (max-width: 768px) {
+  .user-menu {
+    top: 40px;
+    right: 10px;
+    width: 180px;
+  }
+}
