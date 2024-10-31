@@ -1,20 +1,18 @@
 .aboutUs {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   justify-content: center;
-  margin: 20px;
-  margin-top: 60px;
-  min-height: 500px;
-  gap: 20px;
+  margin: 40px 20px;
+  gap: 30px;
+  padding: 40px;
 }
 
-.title, b {
+.title {
   background-image: linear-gradient(
     -225deg,
-    #231557 0%,
-    #44107a 29%,
-    #ff1361 67%,
-    #fff800 100%
+    #ffcc00 0%,
+    #ffd700 50%,
+    #ffcc00 100%
   );
   background-size: 200% auto;
   background-clip: text;
@@ -23,8 +21,19 @@
   animation: title 3s linear infinite;
   display: flex;
   justify-content: center;
-  font-size: 30px;
-  margin-top: 50px;
+  font-size: 36px;
+  margin: 50px 0 30px;
+  text-align: center;
+}
+
+.aboutUs-text {
+  text-align: center;
+  margin: 0 auto 30px;
+  max-width: 800px; /* Limitar el ancho del texto para mejor legibilidad */
+  line-height: 1.5;
+  font-style: italic; /* Estilo cursiva para destacar el texto */
+  font-size: 1.2rem;
+  color: black; /* Color gris claro para mejor contraste */
 }
 
 @keyframes title {
@@ -35,114 +44,77 @@
 
 .memberCard {
   width: 100%;
-  max-width: 250px;
-  height: auto; 
+  max-width: 280px;
+  height: auto;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 20px;
   color: #ffffff;
-  background: linear-gradient(180deg, #3a006d 0%, #010003 100%);
+  background: linear-gradient(180deg, #333333 0%, #000000 100%);
   position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
   margin: 10px;
 }
 
+.memberCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
 .memberImage {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.413);
-  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  margin: 0 auto 15px;
 }
 
 .memberName {
   margin-top: 10px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  color: #ffcc00; /* Color dorado para los nombres */
 }
 
 .memberDescription {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 10px 0;
+  color: #e0e0e0;
 }
 
-
-@media screen and (min-width: 1024px) {
-
+/* Responsividad */
+@media screen and (max-width: 1024px) {
   .aboutUs {
     margin-bottom: 20px;
   }
 
   .memberCard {
-    width: 250px;
-    height: 210px;
-    transition: height 0.5s;
-    margin-bottom: 200px;
-  }
-
-  .memberCard:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.537);
-    height: 340px;
-    transition-timing-function: ease;
-  }
-
-  .memberImage {
-    transition: transform 0.6s;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .memberCard:hover .memberImage {
-    transform: translate(-50%, -30px);
-  }
-  
-  .memberName {
-    opacity: 0;
-    transition: 0.6s;
-  }
-  
-  .memberCard:hover .memberName {
-    margin-top: 180px;
-    opacity: 1;
-  }
-  
-  .memberDescription {
-    opacity: 0;
-  }
-  
-  .memberCard:hover .memberDescription {
-    opacity: 1;
-  }
-  
-  .socialIcons {
-    opacity: 0;
-  }
-  
-  .memberCard:hover .socialIcons {
-    opacity: 1;
-  }
-}
-
-.aboutUs-banner {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
-}
-
-@media screen and (min-width: 10px) {
-  .aboutUs-banner {
-    max-width: 100%;
-    max-height: 350px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 280px;
   }
 }
 
 @media screen and (max-width: 768px) {
+  .aboutUs {
+    flex-direction: column;
+    align-items: center;
+  }
 
+  .memberCard {
+    width: 90%;
+    max-width: 280px;
+    margin-bottom: 30px;
+  }
+
+  .memberImage {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media screen and (max-width: 430px) {
   .aboutUs {
     flex-direction: column;
     align-items: center;
@@ -152,12 +124,24 @@
     width: 100%;
     max-width: 250px;
   }
-}
 
-@media screen and (max-width: 430px) {
-  .aboutUs {
-    flex-direction: column;
-    align-items: center;
+  .memberImage {
+    width: 140px;
+    height: 140px;
   }
 }
 
+.aboutUs-banner {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 10px) {
+  .aboutUs-banner {
+    max-width: 100%;
+    max-height: 350px;
+  }
+}

@@ -1,12 +1,15 @@
-import PropTypes from 'prop-types';
-import Swal from 'sweetalert2';
+import { useState } from 'react';
 import { useSession } from '../../../constans/Stores/useSesion';
+import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import ButtonsLink from "./ButtonsLinks";
+import { FaUserCircle } from 'react-icons/fa'; // Icono de usuario
 
-const HeaderUser = ({ user }) => {
-  const { logout } = useSession();
+import './HeaderUser.css';
+
+const HeaderUser = () => {
+  const { user, logout } = useSession(); // Accede al estado de la sesión aquí
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = async () => {
     const action = await Swal.fire({
@@ -24,19 +27,22 @@ const HeaderUser = ({ user }) => {
     }
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <div className="user-menu">
-      <h2>Bienvenido, {user.name}</h2>
-      <div className="d-flex justify-content-between">
-        <button className="btn btn-dark">Editar Usuario</button>
-        <button className="btn-cerrar" onClick={handleLogout}>Cerrar Sesión</button>
-      </div>
+    <div className="header-user-container">
+      <FaUserCircle className="user-icon" onClick={toggleMenu} />
+      {menuOpen && (
+        <div className="user-menu">
+          <h2>Bienvenido, {user?.username}</h2>
+          <button className="btn btn-edit">Editar Usuario</button>
+          <button className="btn btn-logout" onClick={handleLogout}>Cerrar Sesión</button>
+        </div>
+      )}
     </div>
   );
-};
-
-HeaderUser.propTypes = {
-  user: PropTypes.object.isRequired,
 };
 
 export default HeaderUser;

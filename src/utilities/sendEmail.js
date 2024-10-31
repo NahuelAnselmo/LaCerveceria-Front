@@ -36,7 +36,7 @@ export const sendEmailToRestaurant = (data) => {
         email: data.email,
         issue: data.issue,
         message: data.message,
-        to_email: "ExilirAndBite@gmail.com",
+        to_email: "Lacerveceriatucu@gmail.com",
       },
       "VaOMmTVQfY_WO-5KA"
     )

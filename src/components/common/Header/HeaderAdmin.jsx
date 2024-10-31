@@ -2,10 +2,14 @@ import { Link } from "react-router-dom";
 import { useSession } from "../../../constans/Stores/useSesion";
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import './HeaderAdmin.css';
+import { FaUserCircle } from 'react-icons/fa'; // Icono de usuario
+import { useState } from 'react';
 
-const HeaderAdmin = () => {
-  const { logout } = useSession();
+const HeaderAdmin = ({ toggleMenu }) => {
+  const { user, logout } = useSession();
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = async () => {
     const action = await Swal.fire({
@@ -23,11 +27,22 @@ const HeaderAdmin = () => {
     }
   };
 
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+    toggleMenu(); // Llama a toggleMenu para cerrar el menú si está abierto
+  };
+
   return (
-    <div className="admin-menu">
-      <Link to="/admin">Administrar productos</Link>
-      <Link to="/ventas">Gráficos de ventas</Link>
-      <button className="btn-cerrar" onClick={handleLogout}>Cerrar Sesión</button>
+    <div className="header-admin-container">
+      <FaUserCircle className="user-icon" onClick={handleMenuToggle} />
+      {isMenuOpen && (
+        <div className="admin-menu">
+          <h2>Bienvenido Admin, {user?.username}</h2>
+          <Link to="/admin" className="btn btn-edit">Administrar productos</Link>
+          <Link to="/ventas" className="btn btn-edit">Gráficos de ventas</Link>
+          <button className="btn btn-logout" onClick={handleLogout}>Cerrar Sesión</button>
+        </div>
+      )}
     </div>
   );
 };

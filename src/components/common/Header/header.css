@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 20px 50px;
+  padding: 10px 20px;
   background-color: transparent;
   transition: background-color 0.3s ease, padding 0.3s ease;
   z-index: 1000;
@@ -16,7 +16,7 @@
 
 .header.scrolled {
   background-color: white;
-  padding: 10px 50px;
+  padding: 5px 20px;
 }
 
 .logo {
@@ -26,60 +26,104 @@
 }
 
 .header.scrolled .logo {
+  width: 100px;
   filter: brightness(0);
 }
 
 /* Desktop nav-links */
 .nav-links.desktop {
   display: flex;
-  gap: 25px;
-  justify-content: flex-end;
+  gap: 30px;
+  justify-content: flex-start;
+  padding-left: 100px;
   align-items: center;
   flex-grow: 1;
 }
-
 .nav-links.desktop a {
   color: white;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   text-decoration: none;
   transition: color 0.3s;
+}
+
+.nav-links.desktop a:nth-last-child(-n+2) {
+  margin-left: auto;
+  margin-top: 1px;
 }
 
 .header.scrolled .nav-links.desktop a {
   color: black;
 }
 
-/* Mobile menu */
+/* Botones de menú e ingresar */
+.nav-links.desktop .btn {
+  background-color: #f8c24e;
+  border: none;
+  padding: 10px 20px;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+  margin-left: 0;
+}
+
+/* Ajuste específico para aplicar margen solo entre ciertos botones */
+.nav-links.desktop .btn:not(.header-user-btn) + .btn:not(.header-user-btn) {
+  margin-left: 10px; /* Espacio solo entre botones que no son el header user */
+}
+
+.nav-links.desktop .btn:hover {
+  background-color: #e0b800;
+  transform: scale(1.05);
+}
+/* Mobile menu button (hamburger) */
 .hamburger {
   display: none;
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
-  height: 24px;
+  height: 22px;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .hamburger .bar {
   width: 100%;
   height: 3px;
-  background-color: #f8c24e;
+  background-color: #f8c24e; /* Color dorado para las barras */
+  border-radius: 2px;
   transition: all 0.3s ease-in-out;
 }
 
+.hamburger.open .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mobile menu */
 .nav-links.mobile {
   display: none;
   position: fixed;
   top: 0;
   right: -100%;
-  width: 80%;
+  width: 60%;
   height: 100vh;
-  background-color: #000;
-  justify-content: center;
-  align-items: flex-start;
-  padding-left: 30px;
+  background-color: #fff; /* Fondo blanco */
+  justify-content: center; /* Centrar los elementos verticalmente */
+  align-items: center; /* Alinear al centro horizontalmente */
+  padding: 40px 20px; /* Ajustar el espaciado superior */
   transition: right 0.3s ease-in-out;
   flex-direction: column;
+  z-index: 999;
 }
 
 .nav-links.mobile.open {
@@ -87,19 +131,38 @@
 }
 
 .nav-links.mobile a {
-  color: #fff;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  color: #000; /* Color negro para los enlaces */
+  font-size: 1.3rem; /* Tamaño de fuente ajustado */
+  margin-bottom: 30px; /* Aumentar el espaciado entre enlaces */
   text-decoration: none;
+  font-weight: bold;
+}
+
+/* Botones de menú e ingresar en móvil */
+.nav-links.mobile .btn {
+  background-color: #f8c24e; /* Fondo dorado */
+  color: #000; /* Texto negro */
+  border: none;
+  padding: 10px 40px; /* Ajuste de tamaño para un mejor aspecto */
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+  margin-bottom: 20px; /* Ajuste de espaciado */
+  border-radius: 5px; /* Redondear los bordes del botón */
+}
+
+.nav-links.mobile .btn:hover {
+  background-color: #e0b800; /* Un poco más oscuro al pasar el mouse */
 }
 
 /* Botón de cerrar en menú móvil */
 .close-btn {
   position: absolute;
   top: 20px;
-  right: 30px;
+  right: 20px;
   font-size: 2rem;
-  color: #fff;
+  color: #f8c24e; /* Color dorado */
   background: none;
   border: none;
   cursor: pointer;
