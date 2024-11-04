@@ -8,6 +8,8 @@ import AdminView from "../Views/routing/AdminView";
 import LoginPageView from "../Views/routing/LoginPageView";
 import RegisterPageView from "../Views/routing/RegisterPageView";
 import AuthLayout from "../components/AuthLayout/AuthLayout";
+import MenuView from "../Views/routing/MenuView";
+import PublicMenuView from "../Views/routing/PublicMenuView";
 
 export const router = createBrowserRouter([
   {
@@ -23,8 +25,8 @@ export const router = createBrowserRouter([
             element: <HomePage />,
           },
           {
-            path: "Menu",
-            element: <></>,
+            path: "Publicmenu",
+            element: <MenuView />,
           },
           {
             path: "admin",
@@ -36,6 +38,10 @@ export const router = createBrowserRouter([
         path: "admin",
         element: <PrivateView />,
         children: [
+          {
+            path: "",
+            element: <PublicMenuView />,
+          },
         ],
       },
     ],
