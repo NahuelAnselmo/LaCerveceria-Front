@@ -20,10 +20,18 @@ const CartModal = ({
   } = useForm();
 
   const [resetCount, setResetCount] = useState(false);
-  const [tableNumber, setTableNumber] = useState(initialTableNumber || ""); 
+  const [tableNumber, setTableNumber] = useState(""); 
   const [comment, setComment] = useState("");
   const [isConfirmEnabled, setConfirmEnabled] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    // Cargar el número de mesa desde el almacenamiento local al iniciar el componente
+    const savedTableNumber = localStorage.getItem("tableNumber");
+    if (savedTableNumber) {
+      setTableNumber(savedTableNumber);
+    }
+  }, []);
 
   useEffect(() => {
     
@@ -46,9 +54,7 @@ const CartModal = ({
     }
   }, [tableNumber, initialTableNumber]);
 
-  const handleTableNumberChange = (e) => {
-    setTableNumber(e.target.value);
-  };
+
 
   const handleCommentChange = (e) => {
     setComment(e.target.value);
@@ -92,7 +98,7 @@ const CartModal = ({
           onConfirm(tableNumber, comment, cart, totalAmount );
           setTableNumber("");
           setComment("");
-          setResetCount(true);        
+          setResetCount(true);      
 
       }
     }
@@ -167,7 +173,6 @@ const CartModal = ({
               type="text"
               placeholder="Ingrese el número de mesa"
               value={tableNumber}
-              onChange={handleTableNumberChange}
               className="form-style"
                maxLength="2" 
             />

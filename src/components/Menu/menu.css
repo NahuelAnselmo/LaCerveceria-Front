@@ -19,18 +19,17 @@
     display: inline-flex;
     align-items: center;
   border-radius: 25%;
-  background-color: #1e1e1e;
+
 }
 .button-quantity{
   border: none;
   border-radius: 16px;
-  background-color: #32CD32;
+  background-color: white;
   color: #ffffff;
 }
 .button-quantity:disabled{
-  color: #ffffff;
-  
-  background-color: #ff44008a;
+  color: #ffffff;  
+  background-color: white;
 }
 .button-card{
   border: 1px solid seagreen;

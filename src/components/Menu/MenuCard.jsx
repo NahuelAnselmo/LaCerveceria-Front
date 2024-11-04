@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { FaPlus, FaMinus } from "react-icons/fa";
 import "../Menu/menu.css"
 
 const MenuCard = ({ menu, addToCart }) => {
   const [quantity, setQuantity] = useState(0); 
+  const [stock, setStock] = useState(menu.stock); 
 
   const increaseQuantity = () => setQuantity(quantity + 1);
   const decreaseQuantity = () => setQuantity(quantity > 0 ? quantity - 1 : 0);
@@ -11,6 +13,7 @@ const MenuCard = ({ menu, addToCart }) => {
   const handleAddToCart = () => {
     if (quantity > 0) {
       addToCart(menu, quantity);
+      setStock(stock - quantity); 
       setQuantity(0); 
     }
   };
@@ -29,37 +32,46 @@ const MenuCard = ({ menu, addToCart }) => {
         <h5 className="title-enfasis ">{menu.name}</h5>
         <p className="  text-dark">{menu.description}</p>
         <h5 className="  title-enfasis">$ {menu.price}</h5>
-        <p className="text-light">Stock: {menu.stock}</p>
+        {stock > 0 ? (
+            <p className="text-dark">Stock: {stock}</p>
+          ) : (
+            <p className="text-dark text-danger">Sin stock</p>
+          )}
        </div>
      </div>
-     <div className="py-1 d-flex justify-content-between">
-      <div className="quantity-div">
+     {stock > 0 && (
+        <div className="py-1 d-flex justify-content-between">
+          <div className="quantity-div">
+            <button
+              className="button-quantity"
+              onClick={decreaseQuantity}
+              disabled={quantity === 0}
+              style={{ color: "#f8c24e" }} 
+            >
+               <FaMinus />
+            </button>
 
-     
-  <button
-    className="button-quantity"
-    onClick={decreaseQuantity}
-    disabled={quantity === 0}
-  >
-    ➖
-  </button>
-  <span className="mx-3">{quantity}</span>
-  <button className="button-quantity" onClick={increaseQuantity} disabled={quantity >= menu.stock}>
-    ➕
-  </button> 
-  </div>
-  {quantity > 0 && (
-    <div className="text-end">
+            <span className="text-warning fs-5 mx-3">{quantity}</span>
 
-    <button
-      className="button-card"
-      onClick={handleAddToCart}
-      >
-      Añadir al 🛒
-    </button>
-      </div>
-  )}
-</div>
+            <button
+              className="button-quantity"
+              onClick={increaseQuantity}
+              disabled={quantity >= stock}
+              style={{ color: "#f8c24e" }} 
+            >
+              <FaPlus />
+            </button>
+
+          </div>
+          {quantity > 0 && (
+            <div className="text-end">
+              <button className="button-card" onClick={handleAddToCart}>
+                Añadir al 🛒
+              </button>
+            </div>
+          )}
+        </div>
+      )}
       </div>
    
   );

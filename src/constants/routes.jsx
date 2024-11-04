@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "Publicmenu",
-            element: <PublicMenuView />,
+            element: <MenuView />,
           },
           {
             path: "admin",
@@ -39,8 +39,8 @@ export const router = createBrowserRouter([
         element: <PrivateView />,
         children: [
           {
-            path: "menu",
-            element: <MenuView />,
+            path: "",
+            element: <PublicMenuView />,
           },
         ],
       },
