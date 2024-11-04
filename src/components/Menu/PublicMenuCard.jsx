@@ -12,9 +12,13 @@ const PublicMenuCard = ({ menu }) => {
         />
         <div className="col-5">
           <h5 className="title-enfasis">{menu.name}</h5>
-          <p className="text-light">{menu.description}</p>
+          <p className="text-dark">{menu.description}</p>
           <h5 className="title-enfasis">$ {menu.price}</h5>
-          <p className="text-light">Stock: {menu.stock}</p>
+          {menu.stock > 0 ? (
+            <p className="text-dark">Stock: {menu.stock}</p>
+          ) : (
+            <p className="text-dark text-danger">Sin stock</p>
+          )}
         </div>
       </div>
     </div>

@@ -23,11 +23,11 @@ const MenuCard = ({ menu, addToCart }) => {
       <img
         src={menu.imageUrl}
         alt={menu.name}
-        className="col-6 image-class"
+        className="col-3 image-class"
       />
       <div className=" col-5">
         <h5 className="title-enfasis ">{menu.name}</h5>
-        <p className="  text-light">{menu.description}</p>
+        <p className="  text-dark">{menu.description}</p>
         <h5 className="  title-enfasis">$ {menu.price}</h5>
         <p className="text-light">Stock: {menu.stock}</p>
        </div>

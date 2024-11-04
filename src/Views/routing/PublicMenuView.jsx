@@ -1,4 +1,4 @@
-import PublicMenu from "../../components/Menu/PublicMenuCard"
+import PublicMenu from "../../components/Menu/PublicMenu"
 
 const PublicMenuView = () => {
   return (
