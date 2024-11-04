@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getMenuFn } from "../../api/menu";
 import MenuCard from "./MenuCard";
 import "../Menu/menu.css";
@@ -7,11 +7,15 @@ import { useEffect, useState } from "react";
 import CartModal from "../FooterNavbar/CartModal";
 import PropTypes from "prop-types"; 
 
+
+
 const Menu = () => {
   const [cart, setCart] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [tableNumber, setTableNumber] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [refreshKey, setRefreshKey] = useState(0);
+  const queryClient = useQueryClient();
 
   const {
     data: menu = { data: [] }, 
@@ -90,12 +94,17 @@ const Menu = () => {
     setIsModalOpen(false);
   };
 
-  const handleConfirmOrder = (number) => {
+  const handleConfirmOrder = async  (number) => {    
     setTableNumber(number);
     console.log("Pedido confirmado para la mesa:", number);
     setCart([]);
     setIsModalOpen(false);
+    setRefreshKey((prevKey) => prevKey + 1);
   };
+
+  useEffect(() => {
+    queryClient.invalidateQueries(["menu"]); // Refresca la consulta "menu" en React Query
+  }, [refreshKey, queryClient]);
 
   if (isLoading) {
     return <p className="mt-2 text-center">Cargando datos...</p>;

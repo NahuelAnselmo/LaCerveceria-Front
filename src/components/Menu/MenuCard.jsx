@@ -29,6 +29,7 @@ const MenuCard = ({ menu, addToCart }) => {
         <h5 className="title-enfasis ">{menu.name}</h5>
         <p className="  text-light">{menu.description}</p>
         <h5 className="  title-enfasis">$ {menu.price}</h5>
+        <p className="text-light">Stock: {menu.stock}</p>
        </div>
      </div>
      <div className="py-1 d-flex justify-content-between">
@@ -43,9 +44,10 @@ const MenuCard = ({ menu, addToCart }) => {
     ➖
   </button>
   <span className="mx-3">{quantity}</span>
-  <button className="button-quantity" onClick={increaseQuantity}>
+  <button className="button-quantity" onClick={increaseQuantity} disabled={quantity >= menu.stock}>
     ➕
-  </button> </div>
+  </button> 
+  </div>
   {quantity > 0 && (
     <div className="text-end">
 
@@ -70,6 +72,7 @@ MenuCard.propTypes = {
     imageUrl: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    stock: PropTypes.number.isRequired,
   }).isRequired,
   index: PropTypes.number.isRequired,
   addToCart: PropTypes.func.isRequired,
