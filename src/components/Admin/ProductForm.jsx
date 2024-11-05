@@ -7,11 +7,11 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
   const [formData, setFormData] = useState({
     name: "",
     imageUrl: "",
-    price: "",
-    stock: 0,
+    price: '',
+    stock: '',
     description: "",
     available: true,
-    category: "burgers",
+    category: "",
   });
 
   useEffect(() => {
@@ -21,11 +21,11 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
       setFormData({
         name: "",
         imageUrl: "",
-        price: "",
-        stock: "",
+        price: '',
+        stock: '',
         description: "",
         available: true,
-        category: "burgers",
+        category: "",
       });
     }
   }, [initialData]);
@@ -53,11 +53,11 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
       setFormData({
         name: "",
         imageUrl: "",
-        price: "",
-        stock: "",
+        price: '',
+        stock: '',
         description: "",
         available: true,
-        category: "burgers",
+        category: "",
       });
 
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -81,7 +81,7 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
             id="name"
             name="name"
             type="text"
-            value={formData.name}
+            value={formData.name || ""}
             onChange={handleChange}
           />
           <label className="labelFrom" htmlFor="name">Nombre del Producto</label>
@@ -96,7 +96,7 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
             id="imageUrl"
             name="imageUrl"
             type="url"
-            value={formData.imageUrl}
+            value={formData.imageUrl || ""}
             onChange={handleChange}
           />
           <label className="labelFrom" htmlFor="imageUrl">Imagen (URL)</label>
@@ -111,8 +111,9 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
             className="form-style"
             id="price"
             name="price"
-            type="text"
-            value={formData.price}
+            type="number"
+            min="0"
+            value={formData.price || ''}
             onChange={handleChange}
           />
           <label className="labelFrom" htmlFor="price">Precio</label>
@@ -127,7 +128,8 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
             id="stock"
             name="stock"
             type="number"
-            value={formData.stock}
+            min="0"
+            value={formData.stock || ''}
             onChange={handleChange}
           />
           <label className="labelFrom" htmlFor="stock">Stock</label>
@@ -141,7 +143,7 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
           className="form-style textarea-contacto"
           id="description"
           name="description"
-          value={formData.description}
+          value={formData.description || ""}
           onChange={handleChange}
           placeholder=" "
         />
@@ -166,10 +168,10 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
       <div className="form-group">
         <label  htmlFor="category" className="labelCategori">Categoría</label>
         <select
-          className="form-style"
+          className="form-style SelectCategory"
           id="category"
           name="category"
-          value={formData.category}
+          value={formData.category || ""}
           onChange={handleChange}
         >
           <option value="burgers">Burgers</option>
@@ -181,7 +183,7 @@ const ProductForm = ({ initialData, onSubmit, onCancel }) => {
       </div>
 
       <div className=" d-flex justify-content-around">
-        <button className="button-card" type="submit">
+        <button className="button-card mr-4 " type="submit">
           {initialData ? "Actualizar" : "Guardar Producto"}
         </button>
         {initialData && (
