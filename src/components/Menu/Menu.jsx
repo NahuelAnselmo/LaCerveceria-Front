@@ -120,7 +120,7 @@ const Menu = () => {
 
   return (
     <>
-      <div className="py-5 flex-grow-1">
+      <div className="menu py-5 flex-grow-1">
         <select
           value={selectedCategory}
           onChange={handleCategoryChange}
