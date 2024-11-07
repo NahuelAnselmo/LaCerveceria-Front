@@ -14,7 +14,7 @@
 }
 
 /* Estilos para el formulario */
-.form-user-auth {
+.register-form-user-auth {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
@@ -23,7 +23,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-user-auth h1 {
+.register-form-user-auth h1 {
   color: white;
   font-size: 24px;
   margin-bottom: 20px;
@@ -31,14 +31,14 @@
 }
 
 /* Estilo para los inputs */
-.form-group {
+.register-form-group {
   position: relative;
   margin-bottom: 20px;
 }
 
-.form-control {
-  background-color: #1d1d1d;
-  color: #fff;
+form.register-form-user-auth input.register-form-control {
+  background-color: #1d1d1d !important;
+  color: #ffffff !important;
   border: none;
   border-radius: 4px;
   padding: 10px;
@@ -46,9 +46,14 @@
   box-sizing: border-box;
 }
 
-.form-control:focus {
+form.register-form-user-auth input.register-form-control:focus {
   outline: none;
-  border: 2px solid #f44336;
+  border: 2px solid #f44336 !important;
+}
+
+/* Placeholder visible */
+form.register-form-user-auth input.register-form-control::placeholder {
+  color: #888 !important;
 }
 
 /* Estilos para los mensajes de error */
@@ -62,11 +67,11 @@
 }
 
 /* Contenedor para la contraseña y el ícono de visibilidad */
-.password-container {
+.register-password-container {
   position: relative;
 }
 
-.eye-icon {
+.register-eye-icon {
   position: absolute;
   right: 15px;
   top: 50%;
@@ -76,12 +81,12 @@
   font-size: 18px;
 }
 
-.eye-icon:hover {
+.register-eye-icon:hover {
   color: #fff;
 }
 
 /* Botón de envío */
-button[type="submit"] {
+.register-submit-btn {
   background-color: #f44336;
   color: white;
   border: none;
@@ -93,11 +98,11 @@ button[type="submit"] {
   transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
+.register-submit-btn:hover {
   background-color: #d32f2f;
 }
 
-button[type="submit"][disabled] {
+.register-submit-btn[disabled] {
   background-color: #777;
   cursor: not-allowed;
 }
@@ -125,17 +130,24 @@ button[type="submit"][disabled] {
 }
 
 /* Enlace para iniciar sesión */
-.btn-link {
-  color: #007bff;
+.login-link {
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+  color: #ccc; /* Texto gris */
+}
+
+.login-link a {
+  color: #007bff; /* Color azul para "Inicia sesión aquí" */
   text-decoration: none;
 }
 
-.btn-link:hover {
+.login-link a:hover {
   text-decoration: underline;
 }
 
 /* Botón para volver al inicio */
-.btn-primary {
+.register-btn-primary {
   background-color: #007bff;
   color: white;
   border: none;
@@ -148,18 +160,23 @@ button[type="submit"][disabled] {
   transition: background-color 0.3s ease;
 }
 
-.btn-primary:hover {
+.register-btn-primary:hover {
   background-color: #0056b3;
 }
 
 /* Responsivo para pantallas pequeñas */
 @media (max-width: 600px) {
   .register-page {
-    max-width: 100%;
+    padding: 20px;
   }
 
-  button {
+  .register-submit-btn {
     font-size: 14px;
-    padding: 12px;
+    padding: 10px;
+  }
+
+  .social-icon {
+    font-size: 18px;
+    padding: 8px;
   }
 }

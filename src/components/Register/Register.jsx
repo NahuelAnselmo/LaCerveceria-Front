@@ -97,10 +97,10 @@ const RegisterPage = () => {
       <img src={logo} alt="Logo La Cervecería" className="register-logo" />
       <form
         onSubmit={onSubmitRHF(handleSubmitForm)}
-        className="form-user-auth bg-black"
+        className="register-form-user-auth"
       >
         <h1 className="color-red mt-3">Crear cuenta</h1>
-        <div className="form-group">
+        <div className="register-form-group">
           <Input
             name="username"
             type="text"
@@ -112,6 +112,7 @@ const RegisterPage = () => {
               required: "El nombre es obligatorio",
               validate: validateName,
             }}
+            className="register-form-control"
           />
           <Input
             name="email"
@@ -124,8 +125,9 @@ const RegisterPage = () => {
               required: "El mail es obligatorio",
               validate: validateEmail,
             }}
+            className="register-form-control"
           />
-          <div className="password-container">
+          <div className="register-password-container">
             <OverlayTrigger
               trigger="click"
               placement="top"
@@ -134,7 +136,7 @@ const RegisterPage = () => {
               <span className="d-inline-block">
                 <Input
                   name="password"
-                  type={showPassword ? "text" : "password"} // Mostrar como texto o contraseña
+                  type={showPassword ? "text" : "password"}
                   label="Contraseña"
                   placeholder="Contraseña"
                   error={errors.password}
@@ -149,22 +151,23 @@ const RegisterPage = () => {
                       /^(?=.*[A-Z])(?=.*\d{2,}).{8,}$/.test(value) ||
                       "La contraseña debe tener al menos una mayúscula y dos dígitos",
                   }}
+                  className="register-form-control password-input"
                 />
               </span>
             </OverlayTrigger>
             <span
-              className="eye-icon"
+              className="register-eye-icon"
               onClick={() => setShowPassword(!showPassword)}
-              style={{ cursor: "pointer", marginLeft: "10px" }}
+              style={{ cursor: "pointer" }}
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
-          <div className="form-group">
-            <div className="password-container">
+          <div className="register-form-group">
+            <div className="register-password-container">
               <Input
                 name="confirmPassword"
-                type={showConfirmPassword ? "text" : "password"} // Mostrar como texto o contraseña
+                type={showConfirmPassword ? "text" : "password"}
                 label="Confirmar Contraseña"
                 placeholder="Confirmar Contraseña"
                 error={errors.confirmPassword}
@@ -175,18 +178,19 @@ const RegisterPage = () => {
                     value === watch("password") ||
                     "Las contraseñas no coinciden",
                 }}
+                className="register-form-control password-input"
               />
               <span
-                className="eye-icon"
+                className="register-eye-icon"
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                style={{ cursor: "pointer", marginLeft: "10px" }}
+                style={{ cursor: "pointer" }}
               >
                 {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
           </div>
         </div>
-        <button type="submit" className="btn btn-danger" disabled={loading}>
+        <button type="submit" className="register-submit-btn" disabled={loading}>
           {loading ? "Creando..." : "Crear cuenta"}
         </button>
         <SocialIcons />
@@ -196,7 +200,7 @@ const RegisterPage = () => {
       </p>
 
       {/* Botón para volver al inicio */}
-      <button onClick={() => navigate("/")} className="btn btn-primary mt-3">
+      <button onClick={() => navigate("/")} className="btn btn-warning">
         Volver al inicio
       </button>
     </div>
