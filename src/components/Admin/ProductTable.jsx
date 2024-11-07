@@ -83,7 +83,7 @@ const ProductTable = ({ products, onEdit, onDelete }) => {
           <Slider {...settings}>
             {groupedProducts[category].map((product) => (
               <div key={product.id} className="px-2"> 
-                <div className="card h-100">
+                <div className="card h-60">
                   <img
                     alt={product.name}
                     className="card-img-top"
@@ -93,7 +93,7 @@ const ProductTable = ({ products, onEdit, onDelete }) => {
                     <h5 className="card-title text-sm">{product.name}</h5>
                     <p className="card-text text-sm">{product.description}</p>
                     <p className="card-text text-sm">Precio: ${product.price}</p>
-                    <p className="card-text text-sm">Stock: {product.stock}</p>
+                    <p className="card-text text-sm">Stock: {product.stock ? product.stock : "Sin stock"}</p>
                     <p className="card-text text-sm">
                       Disponible: {product.available ? "Sí" : "No"}
                     </p>
@@ -128,7 +128,8 @@ ProductTable.propTypes = {
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       imageUrl: PropTypes.string.isRequired,
-      price: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      stock: PropTypes.number.isRequired,
       description: PropTypes.string.isRequired,
       available: PropTypes.bool.isRequired,
       ingredients: PropTypes.string,
