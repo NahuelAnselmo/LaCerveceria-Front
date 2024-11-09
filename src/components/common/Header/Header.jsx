@@ -4,11 +4,14 @@ import './Header.css';
 import HeaderUser from '../Header/HeaderUser';
 import HeaderAdmin from '../Header/HeaderAdmin';
 import { useSession } from '../../../constans/Stores/useSesion';
+import { useLocation, useNavigate } from 'react-router-dom'; // Importar useLocation y useNavigate
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isLoggedIn, user, login } = useSession(); // Trae el estado de la sesión
+  const { isLoggedIn, user, login } = useSession();
+  const location = useLocation(); // Obtener la ubicación actual
+  const navigate = useNavigate(); // Navegación programática
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +29,7 @@ const Header = () => {
     const handleStorageChange = () => {
       const token = localStorage.getItem('token');
       if (token) {
-        login(token); // Actualiza el estado de sesión si hay un nuevo token
+        login(token);
       }
     };
 
@@ -47,17 +50,46 @@ const Header = () => {
     }
   };
 
+  const handleNavigation = (path, sectionId) => {
+    if (location.pathname === '/') {
+      // Si estás en la HomePage, hacer scroll a la sección
+      handleScrollToSection(sectionId);
+    } else {
+      // Si no estás en la HomePage, redirigir a la HomePage
+      navigate(path);
+    }
+  };
+
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        <a href="#inicio" className="navbar-brand" onClick={() => handleScrollToSection('inicio')}>
+        <a
+          href="#inicio"
+          className="navbar-brand"
+          onClick={() => handleNavigation('/', 'inicio')}
+        >
           <img src={logo} alt="La Cervecería" className="logo" />
         </a>
 
         <nav className={`nav-links desktop ${isMenuOpen ? 'open' : ''}`}>
-          <a href="#inicio" onClick={() => handleScrollToSection('inicio')}>Inicio</a>
-          <a href="#AboutUs" onClick={() => handleScrollToSection('AboutUs')}>Nosotros</a>
-          <a href="#Contact" onClick={() => handleScrollToSection('Contact')}>Contacto</a>
+          <a
+            href="#inicio"
+            onClick={() => handleNavigation('/', 'inicio')}
+          >
+            Inicio
+          </a>
+          <a
+            href="#AboutUs"
+            onClick={() => handleNavigation('/', 'AboutUs')}
+          >
+            Nosotros
+          </a>
+          <a
+            href="#Contact"
+            onClick={() => handleNavigation('/', 'Contact')}
+          >
+            Contacto
+          </a>
           <a href="/menu" className="btn btn-primary">Menu</a>
 
           {!isLoggedIn && (
@@ -82,13 +114,49 @@ const Header = () => {
         {/* Menú para móviles */}
         <nav className={`nav-links mobile ${isMenuOpen ? 'open' : ''}`}>
           <button className="close-btn" onClick={toggleMenu}>&times;</button>
-          <a href="#inicio" onClick={() => { handleScrollToSection('inicio'); toggleMenu(); }}>Inicio</a>
-          <a href="#AboutUs" onClick={() => { handleScrollToSection('AboutUs'); toggleMenu(); }}>Nosotros</a>
-          <a href="#Contact" onClick={() => { handleScrollToSection('Contact'); toggleMenu(); }}>Contacto</a>
-          <a href="/Menu" className="btn btn-primary" onClick={toggleMenu}>Menu</a>
+          <a
+            href="#inicio"
+            onClick={() => {
+              handleNavigation('/', 'inicio');
+              toggleMenu();
+            }}
+          >
+            Inicio
+          </a>
+          <a
+            href="#AboutUs"
+            onClick={() => {
+              handleNavigation('/', 'AboutUs');
+              toggleMenu();
+            }}
+          >
+            Nosotros
+          </a>
+          <a
+            href="#Contact"
+            onClick={() => {
+              handleNavigation('/', 'Contact');
+              toggleMenu();
+            }}
+          >
+            Contacto
+          </a>
+          <a
+            href="/Menu"
+            className="btn btn-primary"
+            onClick={toggleMenu}
+          >
+            Menu
+          </a>
 
           {!isLoggedIn && (
-            <a href="/login" className="btn btn-primary" onClick={toggleMenu}>Ingresar</a>
+            <a
+              href="/login"
+              className="btn btn-primary"
+              onClick={toggleMenu}
+            >
+              Ingresar
+            </a>
           )}
 
           {isLoggedIn && user && user.isAdmin && (
