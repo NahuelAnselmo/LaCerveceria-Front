@@ -9,6 +9,7 @@ import Input from "../ui/Input/Input.jsx";
 import Swal from "sweetalert2";
 import Map from "./Map.jsx"; // Ruta corregida para el archivo Map.jsx
 import "./Contactstyle.css"; // Importación del CSS corregida
+import { useState } from "react";
 
 const ContactForm = () => {
   const {
@@ -16,7 +17,14 @@ const ContactForm = () => {
     handleSubmit: onSubmitRHF,
     formState: { errors },
     reset,
+    watch,
   } = useForm();
+
+  const [internalCharCount, setInternalCharCount] = useState(0);
+
+  const handleTextareaChange = (e) => {
+    setInternalCharCount(e.target.value.length);
+  };
 
   const handleSubmit = (data) => {
     Swal.fire({
@@ -46,6 +54,7 @@ const ContactForm = () => {
               icon: "success",
             });
             reset(); // Resetea el formulario
+            setInternalCharCount(0); // Reiniciar contador de caracteres
           })
           .catch((error) => {
             console.error("Error al guardar los datos o enviar correos", error);
@@ -58,11 +67,6 @@ const ContactForm = () => {
       }
     });
   };
-  
-  const validateNoExtraSpaces = (value) =>
-    !/\s{2,}/.test(value) || "No puede haber múltiples espacios consecutivos";
-  const validateNoConsecutiveLetters = (value) =>
-    !/(.)\1/.test(value) || "No se permiten letras consecutivas iguales";
 
   return (
     <div className="contact-section">
@@ -98,13 +102,6 @@ const ContactForm = () => {
                 message:
                   "El campo asunto solo puede contener letras, números, espacios y ciertos caracteres de puntuación (. , ! ? () -)",
               },
-              validate: {
-                noExtraSpace: validateNoExtraSpaces,
-                noOnlySpace: (value) =>
-                  value.trim().length > 0 ||
-                  "El campo asunto no puede estar compuesto solo de espacios en blanco",
-                noConsecutiveLetters: validateNoConsecutiveLetters,
-              },
             }}
             register={register}
             placeholder="Asunto"
@@ -129,13 +126,6 @@ const ContactForm = () => {
                 value: /^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$/,
                 message: "El campo nombre solo puede contener letras",
               },
-              validate: {
-                noExtraSpace: validateNoExtraSpaces,
-                noOnlySpace: (value) =>
-                  value.trim().length > 0 ||
-                  "El campo nombre no puede estar compuesto solo de espacios en blanco",
-                noConsecutiveLetters: validateNoConsecutiveLetters,
-              },
             }}
             register={register}
             placeholder="Nombre"
@@ -159,13 +149,6 @@ const ContactForm = () => {
               pattern: {
                 value: /^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$/,
                 message: "El campo apellido solo puede contener letras",
-              },
-              validate: {
-                noExtraSpace: validateNoExtraSpaces,
-                noOnlySpace: (value) =>
-                  value.trim().length > 0 ||
-                  "El campo apellido no puede estar compuesto solo de espacios en blanco",
-                noConsecutiveLetters: validateNoConsecutiveLetters,
               },
             }}
             register={register}
@@ -207,26 +190,25 @@ const ContactForm = () => {
                 },
                 maxLength: {
                   value: 500,
-                  message: "El campo mensaje debe tener un máximo de 500 caracteres",
+                  message:
+                    "El campo mensaje debe tener un máximo de 500 caracteres",
                 },
                 pattern: {
                   value: /^[A-Za-zñÑáéíóúÁÉÍÓÚ0-9\s.,!?()-]+$/,
                   message:
                     "El campo mensaje solo puede contener letras, números y ciertos caracteres de puntuación (. , ! ? () -)",
                 },
-                validate: {
-                  noExtraSpaces: validateNoExtraSpaces,
-                  noOnlySpaces: (value) =>
-                    value.trim().length > 0 ||
-                    "El campo mensaje no puede estar compuesto solo de espacios en blanco",
-                  noConsecutiveLetters: validateNoConsecutiveLetters,
-                },
               }}
               register={register}
               textarea
               placeholder="Escriba un mensaje"
               maxLength={500}
+              onChange={handleTextareaChange}
             />
+          </div>
+
+          <div className="char-counter text-right text-muted">
+            <p>{internalCharCount} / 500</p>
           </div>
 
           <div className="text-center mt-3">

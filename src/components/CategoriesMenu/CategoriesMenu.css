@@ -1,32 +1,28 @@
-.categories-menu {
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  .category-item {
-    padding: 1rem;
-  }
-  
-  .category-image {
-    width: 100%;
-    border-radius: 8px;
-  }
-  
-  .slick-prev, .slick-next {
-    color: #f8c24e; /* Color dorado para las flechas de navegación */
-  }
-  
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  h3 {
-    font-size: 1.5rem;
-    margin-top: 0.5rem;
-  }
-  
-  p {
-    color: #888;
-  }
-  
+.categories-slider {
+  margin: 20px auto;
+  width: 95%;
+  padding: 20px;
+  background-color: #ffffff; /* Fondo blanco */
+}
+
+.category-item {
+  padding: 5px;
+  text-align: center;
+}
+
+.category-image {
+  width: 100%;
+  height: 350px; /* Ajustar la altura para ocupar más espacio */
+  object-fit: cover; /* Asegurar que la imagen se ajuste bien al contenedor */
+}
+
+/* Ocultar las flechas de navegación */
+.slick-prev,
+.slick-next {
+  display: none !important;
+}
+
+/* Ocultar los puntos indicadores (dots) */
+.slick-dots {
+  display: none !important;
+}

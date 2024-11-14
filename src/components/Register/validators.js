@@ -43,13 +43,13 @@ export const validateName = (value) => {
       return "La contraseña no puede tener más de 15 caracteres";
     }
   
-    const regex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,15}$/;
     if (!regex.test(value)) {
-      return "El campo 'password' debe tener una minúscula, una mayúscula, un dígito, y un caracter especial, entre 8 y 15 caracteres";
+      return "El campo 'password' debe tener una minúscula, una mayúscula, un dígito, y entre 8 y 15 caracteres";
     }
-  
+    
     return true;
+    
   };
   
   

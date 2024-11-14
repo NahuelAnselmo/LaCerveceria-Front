@@ -23,8 +23,12 @@ const HeaderUser = () => {
 
     if (action.isConfirmed) {
       logout();
-      navigate('/');
+      navigate('/'); // Redirige al usuario a la página de inicio después de cerrar sesión
     }
+  };
+
+  const handleEditUser = () => {
+    navigate('/user/edit'); // Redirige al usuario a la página de edición
   };
 
   const toggleMenu = () => {
@@ -37,7 +41,7 @@ const HeaderUser = () => {
       {menuOpen && (
         <div className="user-menu">
           <h2>Bienvenido, {user?.username}</h2>
-          <button className="btn btn-edit">Editar Usuario</button>
+          <button className="btn btn-edit" onClick={handleEditUser}>Editar Usuario</button>
           <button className="btn btn-logout" onClick={handleLogout}>Cerrar Sesión</button>
         </div>
       )}
