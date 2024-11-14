@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../../../assets/ImgIntegrantes/logo.png';
+import logo from '../../../assets/Fondos/logo.png';
 import './Header.css';
 import HeaderUser from '../Header/HeaderUser';
 import HeaderAdmin from '../Header/HeaderAdmin';

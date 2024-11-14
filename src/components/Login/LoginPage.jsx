@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Input from '../ui/Input/Input'; // Componente Input personalizado
 import './Login.css';
-import logo from '../../assets/ImgIntegrantes/logo.png';
+import logo from '../../assets/Fondos/logo.png';
 
 const LoginPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();

@@ -8,7 +8,7 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Importar iconos de visibilidad
 import { validateName, validateEmail, validatePassword } from "./validators";
 import "./Register.css";
-import logo from "../../assets/ImgIntegrantes/logo.png"; // Asegúrate de que la ruta sea correcta
+import logo from "../../assets/Fondos/logo.png"; // Asegúrate de que la ruta sea correcta
 
 const RegisterPage = () => {
   const {
