@@ -1,3 +1,7 @@
+.menu{
+  margin-top: 50px;
+
+}
 .menu-category-cont{
   
     --bs-gutter-x: 0 !important;
@@ -8,24 +12,24 @@
   padding: 10px;
   border: 1px solid #FFD700;
   border-radius: 5px;
+ 
 }
 .quantity-div{
  
     display: inline-flex;
     align-items: center;
   border-radius: 25%;
-  background-color: #1e1e1e;
+
 }
 .button-quantity{
   border: none;
   border-radius: 16px;
-  background-color: #32CD32;
+  background-color: white;
   color: #ffffff;
 }
 .button-quantity:disabled{
-  color: #ffffff;
-  
-  background-color: #ff44008a;
+  color: #ffffff;  
+  background-color: white;
 }
 .button-card{
   border: 1px solid seagreen;
@@ -35,12 +39,13 @@
 }
 .title-enfasis{
   color: #FFD700 ;
+  
 }
 
 .image-class {
-
-  height: 100px;
-  object-fit: cover; 
+  max-height:300px;
+  max-width: 150px;
+  object-fit:contain; 
   
 
  
@@ -55,6 +60,7 @@
 .card-styles-body {
   padding: 15px;
   background-color: #201c1c;
+  
 }
 
 .quantity-controls {
@@ -84,24 +90,25 @@
   top: 50px; /* Ajusta según sea necesario */
   left: 50%;
   transform: translateX(-50%);
-  background-color: #201c1c;
-  color: #25d366;
-  border: 1px solid #25d366;
+  background-color: #FFD700;
+  color: black;
+  border: 1px solid #FFD700;
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000; 
+  margin-top: 70px;
 }
 .select-category {
   position: fixed;
-  top: 70px !important; 
+  top: 60px !important; 
   left: 50%;
   transform: translateX(-50%);
-  background-color: #201c1c;
-  color: #25d366;
-  border: 1px solid #25d366;
+  background-color: #FFD700;
+  color: black;
+  border: 1px solid #FFD700;
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
@@ -112,13 +119,13 @@
 
 .select-category:focus {
   outline: none;
-  border-color: #25d366;
+  border-color: white;
 }
 
 .select-category option {
   padding: 10px;
-  background-color: #201c1c;
-  color: #25d366;
+  background-color: #FFD700;
+  color: black;
 }
 
 

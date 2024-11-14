@@ -9,6 +9,9 @@ import LoginPageView from "../Views/routing/LoginPageView";
 import RegisterPageView from "../Views/routing/RegisterPageView";
 import AuthLayout from "../components/AuthLayout/AuthLayout";
 import EditUserView from "../Views/routing/EditUserView"; // Importamos la vista de editar usuario
+import MenuView from "../Views/routing/MenuView";
+import PublicMenuView from "../Views/routing/PublicMenuView";
+
 
 export const router = createBrowserRouter([
   {
@@ -24,8 +27,13 @@ export const router = createBrowserRouter([
             element: <HomePage />,
           },
           {
+
             path: "menu",
             element: <></>,
+
+            path: "Publicmenu",
+            element: <MenuView />,
+
           },
         ],
       },
@@ -44,8 +52,13 @@ export const router = createBrowserRouter([
         element: <PrivateView />, // Solo para administradores (usando la lógica de diferenciación en PrivateView)
         children: [
           {
+
             path: "/admin",
             element: <AdminView />, // Página de administrador
+
+            path: "",
+            element: <PublicMenuView />,
+
           },
         ],
       },
