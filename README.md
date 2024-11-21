@@ -1,25 +1,21 @@
-# Elixir and Bites - Proyecto de Bar en React
+# La Cerveceria - Proyecto de Bar en React
 
-Este proyecto es una aplicación web para el bar "Elixir and Bites", creada con React. La aplicación incluye múltiples características, como un sistema de preBienvenida, un menú de productos filtrado, un carrito de compras visible, y más.
+Este proyecto es una aplicación web para el bar "La Cerveceria", creada con React. La aplicación incluye múltiples características, un menú de productos filtrado, un carrito de compras visible, y más.
 
 ## Colaboradores
 
-- **José Lobo**: [https://github.com/Joselobo753](https://github.com/Joselobo753)
 - **Nahuel Anselmo**: [https://github.com/NahuelAnselmo](https://github.com/NahuelAnselmo)
 - **Mario Arroyo**: [https://github.com/Mariojar96](https://github.com/Mariojar96)
-- **Tobías Zarlenga**: [https://github.com/tobiaszarlenga](https://github.com/tobiaszarlenga)
+- **Santiago Altamiranda **: [https://github.com/SantiagoAltamiranda](https://github.com/SantiagoAltamiranda)
 
 ## Características
 
-- **Página de PreBienvenida**: Una pantalla de introducción que se muestra durante 5 segundos antes de redirigir automáticamente a la página principal.
-- **Página Principal**: Los usuarios pueden explorar el sitio, ver el menú de productos y utilizar los sistemas de registro e inicio de sesión.
+- **Página Principal**: Los usuarios pueden explorar el sitio, ver el menú de productos y utilizar los sistemas de registro e inicio de sesión, donde tambien incluimos el sobre sonostros, tambien esta el contacto con su ubicacion del local.
 - **Menú de Productos**: Los productos se gestionan mediante un filtro para facilitar la búsqueda.
 - **Carrito de Compras**: Siempre visible en la parte inferior de la pantalla, muestra el total de la compra. Al hacer clic en el carrito, se abre un modal que detalla el pedido y lo registra.
 - **Modal de Registro e Inicio de Sesión**: Un modal interactivo que gira dependiendo de si el usuario quiere registrarse o iniciar sesión.
 - **Página de Administración**: Accesible solo para administradores, permite cargar productos, así como visualizar, editar o borrar productos.
-- **Página "Sobre Nosotros"**: Contiene información sobre el bar y su historia.
-- **Página de Contacto**: Permite a los usuarios enviar mensajes directamente al correo del establecimiento.
-- **Conexión al Backend**: Toda la aplicación está conectada al backend gestionado por el repositorio [https://github.com/tobiaszarlenga/backend-elixir-98i-p3](https://github.com/tobiaszarlenga/backend-elixir-98i-p3).
+- **Conexión al Backend**: Toda la aplicación está conectada al backend gestionado por el repositorio [https://github.com/NahuelAnselmo/LaCerveceria-Back](https://github.com/NahuelAnselmo/LaCerveceria-Back).
 
 ## Tecnologías Utilizadas
 
