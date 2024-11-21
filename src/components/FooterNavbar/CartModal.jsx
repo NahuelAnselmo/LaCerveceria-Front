@@ -26,10 +26,11 @@ const CartModal = ({
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    // Cargar el número de mesa desde el almacenamiento local al iniciar el componente
+    // Recuperar número de mesa de localStorage al cargar el componente
     const savedTableNumber = localStorage.getItem("tableNumber");
     if (savedTableNumber) {
       setTableNumber(savedTableNumber);
+      setConfirmEnabled(true);
     }
   }, []);
 
@@ -48,6 +49,7 @@ const CartModal = ({
       } else {
         setConfirmEnabled(true);
         setErrorMessage("");
+        localStorage.setItem("tableNumber", tableNumber);
       }
     } else {
       setConfirmEnabled(true);
@@ -96,7 +98,6 @@ const CartModal = ({
           console.log('Nuevo pedido creado:', newOrder);    
           // Resetear campos si es necesario
           onConfirm(tableNumber, comment, cart, totalAmount );
-          setTableNumber("");
           setComment("");
           setResetCount(true);      
 
@@ -167,7 +168,7 @@ const CartModal = ({
           </table>
         )}
 
-        {!initialTableNumber && (
+        {!initialTableNumber && !localStorage.getItem("tableNumber") && (
           <div className="form-group">
             <input
               type="text"
@@ -183,13 +184,13 @@ const CartModal = ({
           </div>
         )}
 
-        {initialTableNumber && (
+        {initialTableNumber || localStorage.getItem("tableNumber") ?  (
           <div className="form-group">
             <h5 className="title-enfasis">
-              Número de mesa: {initialTableNumber}
+              Número de mesa: {localStorage.getItem("tableNumber") || initialTableNumber}
             </h5>
           </div>
-        )}
+        ) : null}
 
         <Input
           className="m-3 textarea-contacto"

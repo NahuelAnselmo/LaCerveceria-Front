@@ -38,13 +38,13 @@
   font-size: 24px;
 }
 .button-confirm{
-  background-color: #25d366 !important;
+  background-color: #FFD700 !important;
   color: #121212 !important;
  
 }
 .button-confirm:disabled{
   background-color: transparent !important;
-  border: 1px solid #25d366;
+  border: 1px solid #FFD700;
 }
 
 

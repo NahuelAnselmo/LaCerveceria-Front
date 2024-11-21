@@ -12,7 +12,6 @@ import EditUserView from "../Views/routing/EditUserView"; // Importamos la vista
 import MenuView from "../Views/routing/MenuView";
 import PublicMenuView from "../Views/routing/PublicMenuView";
 
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -27,18 +26,17 @@ export const router = createBrowserRouter([
             element: <HomePage />,
           },
           {
-
             path: "menu",
-            element: <></>,
-
-            path: "Publicmenu",
-            element: <MenuView />,
-
+            element: <MenuView />, // Corregido para mostrar el menú público
+          },
+          {
+            path: "public-menu",
+            element: <PublicMenuView />, // Nombre de la ruta corregido
           },
         ],
       },
       {
-        path: "/user",
+        path: "user",
         element: <PrivateView />, // Para usuarios autenticados y administradores
         children: [
           {
@@ -48,17 +46,16 @@ export const router = createBrowserRouter([
         ],
       },
       {
-        path: "/admin",
+        path: "admin",
         element: <PrivateView />, // Solo para administradores (usando la lógica de diferenciación en PrivateView)
         children: [
           {
-
-            path: "/admin",
-            element: <AdminView />, // Página de administrador
-
             path: "",
-            element: <PublicMenuView />,
-
+            element: <AdminView />, // Página de administrador
+          },
+          {
+            path: "menu",
+            element: <PublicMenuView />, // Página del menú para administradores
           },
         ],
       },

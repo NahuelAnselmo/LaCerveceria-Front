@@ -92,6 +92,7 @@ const Menu = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    queryClient.invalidateQueries(["menu"]); 
   };
 
   const handleConfirmOrder = async  (number) => {    
