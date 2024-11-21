@@ -32,9 +32,9 @@
   background-color: white;
 }
 .button-card{
-  border: 1px solid seagreen;
+  border: 1px solid #FFD700;
   border-radius: 8px;
-  background-color: #32CD32 ;
+  background-color: #FFD700 ;
   box-shadow: 3px 3px 10px rgba(189,27,189,0.5);
 }
 .title-enfasis{
@@ -82,7 +82,7 @@
 }
 
 .button {
-  background-color: #25d366 !important ;   
+  background-color: #FFD700 !important ;   
 }
 
 .select-category-scroll {
