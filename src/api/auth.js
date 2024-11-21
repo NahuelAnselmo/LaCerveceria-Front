@@ -150,3 +150,29 @@ export const checkEmailExists = async (email) => {
     throw error;
   }
 };
+
+// PUT Edit User Function
+export const putEditUserFn = async (userId, updatedData) => {
+  try {
+    const res = await fetch(`${BACKEND_URL}/api/v1/auth/edit/${userId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`, // Token para autenticar
+      },
+      body: JSON.stringify(updatedData),
+    });
+
+    if (!res.ok) {
+      const errorResponse = await res.json();
+      console.error("Error en el backend:", errorResponse);
+      throw new Error("Error al actualizar el usuario");
+    }
+
+    const updatedUser = await res.json();
+    return updatedUser;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+};

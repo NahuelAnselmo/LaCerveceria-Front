@@ -1,31 +1,45 @@
-import Slider from 'react-slick';
-import './CategoriesMenu.css';
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import "./CategoriesMenu.css"; // Archivo de estilo personalizado
 
-const CategoriesMenu = ({ categories = [] }) => { 
-  const categoryImages = {
-    burgers: '/assets/burgers.jpg',
-    entrantes: '/assets/entrantes.jpg',
-    tragos: '/assets/tragos.jpg',
-    bebidas: '/assets/bebidas.jpg',
-    cervezas: '/assets/cervezas.jpg',
-  };
+// Importación de las imágenes desde la nueva ubicación
+import cerveza1 from "../../assets/Images/cerveza1.jpg";
+import cerveza2 from "../../assets/Images/cerveza2.jpg";
+import cerveza3 from "../../assets/Images/cerveza3.jpg";
+import cerveza4 from "../../assets/Images/cerveza4.jpg";
+import trago1 from "../../assets/Images/trago1.jpeg";
+import trago2 from "../../assets/Images/trago2.jpeg";
+import comida1 from "../../assets/Images/comida1.jpg";
+import comida2 from "../../assets/Images/comida2.jpeg";
+import comida3 from "../../assets/Images/comida3.jpeg";
+import comida4 from "../../assets/Images/comida4.jpeg";
+import milanesa1 from "../../assets/Images/milanesa1.jpeg";
+import milanesa2 from "../../assets/Images/milanesa2.jpeg";
 
+const Categories = () => {
   const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    dots: false, // No mostrar los puntos indicadores de cada slide
+    infinite: true, // Ciclo infinito de los slides
+    speed: 750, // Velocidad de transición
+    slidesToShow: 5, // Cuántas imágenes mostrar al mismo tiempo
+    slidesToScroll: 1, // Cuántas imágenes desplazar al hacer clic en los botones de navegación
+    autoplay: true, // Reproducción automática
+    autoplaySpeed: 1500, // Tiempo entre cada transición automática
+    pauseOnHover: true, // Detener la reproducción automática al pasar el mouse por encima
+    cssEase: "ease-in-out", // Efecto de transición más suave
+    arrows: false, // Eliminar las flechas de navegación
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -35,18 +49,21 @@ const CategoriesMenu = ({ categories = [] }) => {
   };
 
   return (
-    <div className="categories-menu">
-      <h2>Nuestras Categorías</h2>
+    <div className="categories-slider">
+      {/* Slider de Cervezas */}
       <Slider {...settings}>
-        {categories.map((category) => (
-          <div key={category.name} className="category-item">
-            <img
-              src={categoryImages[category.name.toLowerCase()] || '/assets/default.jpg'} // Use a default image if category is not found
-              alt={category.name}
-              className="category-image"
-            />
-            <h3>{category.name}</h3>
-            <p>{category.description}</p>
+        {[cerveza1, cerveza2, cerveza3, cerveza4, trago1, trago2].map((image, index) => (
+          <div key={`cerveza-${index}`} className="category-item">
+            <img src={image} alt={`Cerveza ${index + 1}`} className="category-image" />
+          </div>
+        ))}
+      </Slider>
+
+      {/* Slider de Comidas */}
+      <Slider {...settings}>
+        {[comida1, comida2, comida3, comida4, milanesa1, milanesa2].map((image, index) => (
+          <div key={`comida-${index}`} className="category-item">
+            <img src={image} alt={`Comida ${index + 1}`} className="category-image" />
           </div>
         ))}
       </Slider>
@@ -54,4 +71,4 @@ const CategoriesMenu = ({ categories = [] }) => {
   );
 };
 
-export default CategoriesMenu;
+export default Categories;

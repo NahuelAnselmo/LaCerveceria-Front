@@ -60,13 +60,6 @@ const Input = (props) => {
 ) : (
    <i className={`input-icon bi bi-text-left`}></i>
 )}
-        {maxLength && (
-          <div className="text-muted text-right text-white char-counter">
-            <p className="text-white">{internalCharCount}/ {maxLength}</p>
-          </div>
-        )}
-        
-        {error ? ( <p className="text-white text-start">{error?.message} </p> ) : ( <p></p>)}
       </fieldset>
     );
   }
