@@ -1,89 +1,85 @@
 import { useState, useEffect } from 'react';
 import { getProductsFn, createProduct, updateProduct, deleteProduct } from '../../api/products.js';
-import ProductForm from '../../components/Admin/ProductForm'
-import ProductTable from '../../components/Admin/ProductTable'
-
+import ProductForm from '../../components/Admin/ProductForm';
+import ProductTable from '../../components/Admin/ProductTable';
 
 const AdminView = () => {
   const [products, setProducts] = useState([]);
   const [editingProduct, setEditingProduct] = useState(null);
 
+  // Obtener la lista de productos
+  const fetchProducts = async () => {
+    try {
+      const response = await getProductsFn();
+      const fetchedProducts = response.data || []; 
+      setProducts(fetchedProducts);
+    } catch (error) {
+      console.error('Error al obtener los productos:', error);
+    }
+  };
+
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await getProductsFn();
-        const fetchedProducts = response.data || []; 
-        setProducts(fetchedProducts);
-      } catch (error) {
-        console.error("Error al obtener los productos:", error);
-      }
-    };
     fetchProducts();
   }, []);
 
+  // Crear un nuevo producto
   const handleAddProduct = async (product) => {
     try {
       const newProduct = await createProduct(product);
-      setProducts([...products, newProduct]);
+      if (newProduct) {
+        setProducts((prevProducts) => [...prevProducts, newProduct]);
+      }
     } catch (error) {
-      console.error("Error al agregar el producto:", error);
+      console.error('Error al agregar el producto:', error);
     }
   };
 
-  const handleEditProduct = (product) => {
-    setEditingProduct(product);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
+  // Actualizar un producto existente
   const handleUpdateProduct = async (updatedProduct) => {
-    // eslint-disable-next-line no-unused-vars
     const { id, ...dataProduct } = updatedProduct;
     try {
-      const updated = await updateProduct(editingProduct.id, dataProduct);
-
+      const updated = await updateProduct(id, dataProduct);
       if (updated) {
-        setProducts(
-          products.map((product) =>
-            product.id === editingProduct.id ? updated : product
+        setProducts((prevProducts) =>
+          prevProducts.map((product) =>
+            product.id === id ? updated : product
           )
         );
-        setEditingProduct(null);
-      } else {
-        console.error(
-          "El producto actualizado es nulo o no se devolvió correctamente"
+        setEditingProduct(null); // Limpiar el estado de edición
+      }
+    } catch (error) {
+      console.error('Error al actualizar el producto:', error);
+    }
+  };
+
+  // Eliminar un producto
+  const handleDeleteProduct = async (productId) => {
+    try {
+      const success = await deleteProduct(productId);
+      if (success) {
+        setProducts((prevProducts) =>
+          prevProducts.filter((product) => product.id !== productId)
         );
       }
     } catch (error) {
-      console.error("Error al actualizar el producto:", error);
+      console.error('Error al eliminar el producto:', error);
     }
   };
 
-  const handleDeleteProduct = async (productId) => {
-    try {
-      await deleteProduct(productId);
-      setProducts(products.filter((product) => product.id !== productId));
-    } catch (error) {
-      console.error("Error al eliminar el producto:", error);
-    }
-  };
-
-  const refreshProducts = async () => {
-    try {
-      const response = await getProductsFn();
-      setProducts(response.data || []);
-    } catch (error) {
-      console.error("Error al obtener los productos:", error);
-    }
+  // Manejar la edición de productos
+  const handleEditProduct = (product) => {
+    setEditingProduct(product);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <div className="py-4 AdminViewcss">
-      <h2 className='title-Admin text-center mb-5'>Administrador de Productos</h2>
+      <h2 className="title-Admin text-center mb-5">Administrador de Productos</h2>
       <ProductForm
         initialData={editingProduct}
-        refreshProducts={refreshProducts}
         onCancel={() => setEditingProduct(null)}
         onSubmit={editingProduct ? handleUpdateProduct : handleAddProduct}
+        refreshProducts={fetchProducts}
       />
       <ProductTable
         products={products}
