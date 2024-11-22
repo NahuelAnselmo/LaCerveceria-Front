@@ -38,15 +38,15 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0px 4px 6px #25d366;
+  box-shadow: 0px 4px 6px #FFD700;
   border: 2px solid #000000;
-  color: #25d366;
+  color: #FFD700;
 }
 .footer-icon:hover {
-  color: #25d366;
+  color: #FFD700;
 }
 .item-footer {
-  color: #25d366;
+  color: #FFD700;
 }
 @media (max-width: 768px) {
   .navbar-footer {
