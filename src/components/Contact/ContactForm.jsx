@@ -7,8 +7,8 @@ import {
 
 import Input from "../ui/Input/Input.jsx";
 import Swal from "sweetalert2";
-import Map from "./Map.jsx"; // Ruta corregida para el archivo Map.jsx
-import "./Contactstyle.css"; // Importación del CSS corregida
+import Map from "./Map.jsx";
+import "./Contactstyle.css";
 import { useState } from "react";
 
 const ContactForm = () => {
@@ -26,7 +26,16 @@ const ContactForm = () => {
     setInternalCharCount(e.target.value.length);
   };
 
-  const handleSubmit = (data) => {
+  const handleSubmit = (formData) => {
+    const normalizedData = {
+      ...formData,
+      name: formData.name.trim(),
+      lastname: formData.lastname.trim(),
+      email: formData.email.trim(),
+      issue: formData.issue.trim(),
+      message: formData.message.trim(),
+    };
+  
     Swal.fire({
       title: "Estás a punto de enviar un email",
       text: "¿Estás seguro de enviarlo?",
@@ -38,13 +47,11 @@ const ContactForm = () => {
       confirmButtonColor: "#3085d6",
     }).then((result) => {
       if (result.isConfirmed) {
-        // Llama a la API para guardar los datos de contacto
-        postContacts(data)
+        postContacts(normalizedData)
           .then(() => {
-            // Después de guardar en la base de datos, envía los correos
             return Promise.all([
-              sendEmailToClient(data),
-              sendEmailToRestaurant(data),
+              sendEmailToClient(normalizedData),
+              sendEmailToRestaurant(normalizedData),
             ]);
           })
           .then(() => {
@@ -53,8 +60,8 @@ const ContactForm = () => {
               text: "Tu email fue enviado con éxito!",
               icon: "success",
             });
-            reset(); // Resetea el formulario
-            setInternalCharCount(0); // Reiniciar contador de caracteres
+            reset();
+            setInternalCharCount(0);
           })
           .catch((error) => {
             console.error("Error al guardar los datos o enviar correos", error);
