@@ -26,8 +26,8 @@ export const router = createBrowserRouter([
             element: <HomePage />,
           },
           {
-            path: "menu",
-            element: <MenuView />, // Corregido para mostrar el menú público
+            path: "public-menu",
+            element: <PublicMenuView />, // Corregido para mostrar el menú público
           },
           {
             path: "public-menu",
@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "menu",
-            element: <PublicMenuView />, // Página del menú para administradores
+            element: <MenuView />, // Página del menú para administradores
           },
         ],
       },
