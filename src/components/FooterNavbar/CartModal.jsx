@@ -176,6 +176,7 @@ const CartModal = ({
               value={tableNumber}
               className="form-style"
                maxLength="2" 
+               onChange={(e) => setTableNumber(e.target.value)}
             />
             <i className={`input-icon bi bi-hash`}></i>
             <div className="py-2">
