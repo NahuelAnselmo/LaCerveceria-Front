@@ -6,6 +6,8 @@ import { useSession } from '../../constans/Stores/useSesion';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { validateName, validateEmail, validatePassword } from '../Register/validators';
 import './EditUser.css';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 
 const EditUser = () => {
   const { user } = useSession();
@@ -44,7 +46,7 @@ const EditUser = () => {
       });
       return;
     }
-
+  
     Swal.fire({
       title: 'Actualizando datos...',
       allowOutsideClick: false,
@@ -52,8 +54,9 @@ const EditUser = () => {
         Swal.showLoading();
       },
     });
+  
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/auth/edit/${user.id}`, {
+      const response = await fetch(`${BACKEND_URL}/api/v1/auth/edit/${user.id}`, { // Cambia aquí
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +68,7 @@ const EditUser = () => {
           password: data.password,
         }),
       });
-
+  
       if (response.ok) {
         Swal.fire({
           icon: 'success',
@@ -89,6 +92,7 @@ const EditUser = () => {
       });
     }
   };
+  
 
   return (
     <div className="edit-user-container-edituser">

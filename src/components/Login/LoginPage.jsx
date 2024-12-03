@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../ui/Input/Input'; // Componente Input personalizado
 import './Login.css';
 import logo from '../../assets/Fondos/logo.png';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL; // Para Vite
 
 const LoginPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -13,7 +14,7 @@ const LoginPage = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/api/v1/auth/login', {
+      const response = await fetch(`${BACKEND_URL}/api/v1/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,7 +65,7 @@ const LoginPage = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      fetch('http://localhost:3000/api/v1/some-protected-route', {
+      fetch(`${BACKEND_URL}/api/v1/some-protected-route`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`, // Incluye el token en los headers
@@ -84,7 +85,9 @@ const LoginPage = () => {
   const handleLogout = () => {
     localStorage.removeItem('token'); // Borra el token del almacenamiento local
     navigate('/login'); // Redirige al login
+    window.location.reload(); // Recarga la página para limpiar cualquier estado cacheado
   };
+  
 
   return (
     <div className="login-page">

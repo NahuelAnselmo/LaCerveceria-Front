@@ -9,6 +9,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa"; // Importar iconos de visibi
 import { validateName, validateEmail, validatePassword } from "./validators";
 import "./Register.css";
 import logo from "../../assets/Fondos/logo.png"; // Asegúrate de que la ruta sea correcta
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const RegisterPage = () => {
   const {
@@ -39,13 +40,13 @@ const RegisterPage = () => {
       toast.error("Las contraseñas no coinciden");
       return;
     }
-
+  
     toast.loading("Cargando...");
     setLoading(true); // Activar loading
     try {
       console.log("➡️ Enviando datos de registro:", data);
       const response = await fetch(
-        "http://localhost:3000/api/v1/auth/register",
+        `${BACKEND_URL}/api/v1/auth/register`, // Cambiar la URL local por BACKEND_URL
         {
           method: "POST",
           headers: {
@@ -58,9 +59,9 @@ const RegisterPage = () => {
           }),
         }
       );
-
+  
       const result = await response.json();
-
+  
       if (response.ok) {
         toast.success("Cuenta creada exitosamente");
         navigate("/login"); // Redirige al login después de registro exitoso
