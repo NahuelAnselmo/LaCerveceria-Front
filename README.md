@@ -4,10 +4,9 @@ Este proyecto es una aplicación web para el bar "Elixir and Bites", creada con 
 
 ## Colaboradores
 
-- **José Lobo**: [https://github.com/Joselobo753](https://github.com/Joselobo753)
 - **Nahuel Anselmo**: [https://github.com/NahuelAnselmo](https://github.com/NahuelAnselmo)
 - **Mario Arroyo**: [https://github.com/Mariojar96](https://github.com/Mariojar96)
-- **Tobías Zarlenga**: [https://github.com/tobiaszarlenga](https://github.com/tobiaszarlenga)
+- **Santiago Altamiranda**: https://github.com/SantiagoAltamiranda
 
 ## Características
 
