@@ -30,12 +30,12 @@ const MenuCard = ({ menu, addToCart }) => {
       />
       <div className=" col-5">
         <h5 className="title-enfasis ">{menu.name}</h5>
-        <p className="  text-dark">{menu.description}</p>
+        <p>{menu.description}</p>
         <h5 className="  title-enfasis">$ {menu.price}</h5>
         {stock > 0 ? (
-            <p className="text-dark">Stock: {stock}</p>
+            <p>Stock: {stock}</p>
           ) : (
-            <p className="text-dark text-danger">Sin stock</p>
+            <p className="text-danger">Sin stock</p>
           )}
        </div>
      </div>

@@ -80,7 +80,7 @@ const PublicMenu = () => {
       <div className="menu-category-cont py-2">
         {Object.keys(groupedMenu).map((category) => (
           <div key={category}>
-            <div className="text-center">
+            <div className="text-center page">
               <h2 className="title-enfasis mt-5">{category.toUpperCase()}</h2>
             </div>
             <div className="mx-2">

@@ -1,10 +1,8 @@
 .menu{
-  margin-top: 50px;
-
+  background-color: #1e1e1e;
 }
-.menu-category-cont{
-  
-    --bs-gutter-x: 0 !important;
+.menu-category-cont{  
+    --bs-gutter-x: 0 !important;    
 
 }
 
@@ -37,6 +35,9 @@
   background-color: #FFD700 ;
   box-shadow: 3px 3px 10px rgba(189,27,189,0.5);
 }
+.page {
+  margin-top: 120px;
+}
 .title-enfasis{
   color: #FFD700 ;
   
@@ -45,11 +46,7 @@
 .image-class {
   max-height:300px;
   max-width: 150px;
-  object-fit:contain; 
-  
-
- 
- 
+  object-fit:contain;  
 }
 .card-image {
   width: 100%;
@@ -58,8 +55,8 @@
 }
 
 .card-styles-body {
-  padding: 15px;
-  background-color: #201c1c;
+  padding: 75px;
+  background-color: #1e1e1e;
   
 }
 
@@ -87,7 +84,7 @@
 
 .select-category-scroll {
   position: fixed;
-  top: 50px; 
+  top: 65px; 
   left: 50%;
   transform: translateX(-50%);
   background-color: #FFD700;
@@ -99,11 +96,11 @@
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000; 
-  margin-top: 70px;
+  margin-top: 60px;
 }
 .select-category {
   position: fixed;
-  top: 60px !important; 
+  top: 125px !important; 
   left: 50%;
   transform: translateX(-50%);
   background-color: #FFD700;
