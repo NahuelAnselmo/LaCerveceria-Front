@@ -2,7 +2,7 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const createOrder = async (orderData) => {
     try {
-      const res = await fetch(`${BACKEND_URL}/orders`, {
+      const res = await fetch(`${BACKEND_URL}/api/v1/orders`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -2,7 +2,7 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 export const getProductsFn = async () => {
-  const res = await fetch(`${BACKEND_URL}/products`);
+  const res = await fetch(`${BACKEND_URL}/api/v1/products`);
   const data = await res.json();
 
   if (!res.ok) {

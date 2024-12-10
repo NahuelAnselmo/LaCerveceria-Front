@@ -2,7 +2,7 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const postContacts = async (data) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/contact`, 
+    const res = await fetch(`${BACKEND_URL}/api/v1/contact`, 
       {
       method: 'POST',
       headers: {
