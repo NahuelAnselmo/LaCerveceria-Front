@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa'; // Icono de usuario
 
-import './HeaderUser.css';
+import './headerUser.css';
 
 const HeaderUser = () => {
   const { user, logout } = useSession(); // Accede al estado de la sesión aquí
