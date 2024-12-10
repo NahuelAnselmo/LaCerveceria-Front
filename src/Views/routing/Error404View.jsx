@@ -1,24 +1,31 @@
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Error404View = () => {
-  
   const navigate = useNavigate();
 
   return (
-    <>
-      <div className="text-center pt-5">
-        <div className="container">
-        </div>
-        <img src="/404.jpg" className="w-10" alt="error" />
-        <div className="py-4">
+    <div 
+      className="d-flex flex-column align-items-center justify-content-center vh-100 text-center"
 
-        <button onClick={() => navigate("/")} className="btn btn-secondary mt-3">
-        Volver al inicio
-      </button>
-        </div>
+    >
+      <div className="container">
+        <img 
+          src="/404.jpg" 
+          className="img-fluid" 
+          alt="Error 404" 
+        />
+        <p className="fs-5 text-muted">
+          Lo sentimos, la página que buscas no existe.
+        </p>
+        <button 
+          onClick={() => navigate("/")} 
+          className="btn btn-secondary mt-3"
+        >
+          Volver al inicio
+        </button>
       </div>
-      
-    </>
+    </div>
   );
 };
+
 export default Error404View;
