@@ -90,7 +90,7 @@ const Header = () => {
           >
             Contacto
           </a>
-          <a href="/menu" className="btn btn-primary">Menu</a>
+          <a href={isLoggedIn ? "/user/menu" : "/public-menu"} className="btn btn-primary">Menu</a>
 
           {!isLoggedIn && (
             <a href="/login" className="btn btn-primary">Ingresar</a>
@@ -102,6 +102,7 @@ const Header = () => {
 
           {isLoggedIn && user && !user.isAdmin && (
             <HeaderUser user={user} />
+            
           )}
         </nav>
 
