@@ -22,6 +22,7 @@ const HeaderAdmin = ({ toggleMenu }) => {
     });
 
     if (action.isConfirmed) {
+      localStorage.removeItem("tableNumber");
       logout();
       navigate('/');
     }
