@@ -4,14 +4,14 @@ import './header.css';
 import HeaderUser from '../Header/HeaderUser';
 import HeaderAdmin from '../Header/HeaderAdmin';
 import { useSession } from '../../../constans/Stores/useSesion';
-import { useLocation, useNavigate } from 'react-router-dom'; // Importar useLocation y useNavigate
+import { useLocation, useNavigate } from 'react-router-dom'; 
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isLoggedIn, user, login } = useSession();
-  const location = useLocation(); // Obtener la ubicación actual
-  const navigate = useNavigate(); // Navegación programática
+  const location = useLocation(); 
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +24,7 @@ const Header = () => {
     };
   }, []);
 
-  // Detectar cambios en el localStorage del token para recargar la sesión
+
   useEffect(() => {
     const handleStorageChange = () => {
       const token = localStorage.getItem('token');
@@ -52,10 +52,10 @@ const Header = () => {
 
   const handleNavigation = (path, sectionId) => {
     if (location.pathname === '/') {
-      // Si estás en la HomePage, hacer scroll a la sección
+
       handleScrollToSection(sectionId);
     } else {
-      // Si no estás en la HomePage, redirigir a la HomePage
+
       navigate(path);
     }
   };
@@ -112,7 +112,7 @@ const Header = () => {
           <span className="bar"></span>
         </div>
 
-        {/* Menú para móviles */}
+
         <nav className={`nav-links mobile ${isMenuOpen ? 'open' : ''}`}>
           <button className="close-btn" onClick={toggleMenu}>&times;</button>
           <a

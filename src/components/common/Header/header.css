@@ -1,4 +1,4 @@
-/* General header styles */
+
 .header {
   position: fixed;
   top: 0;
@@ -30,7 +30,7 @@
   filter: brightness(0);
 }
 
-/* Desktop nav-links */
+
 .nav-links.desktop {
   display: flex;
   gap: 30px;
@@ -56,7 +56,7 @@
   color: black;
 }
 
-/* Botones de menú e ingresar */
+
 .nav-links.desktop .btn {
   background-color: #f8c24e;
   border: none;
@@ -69,16 +69,16 @@
   margin-left: 0;
 }
 
-/* Ajuste específico para aplicar margen solo entre ciertos botones */
+
 .nav-links.desktop .btn:not(.header-user-btn) + .btn:not(.header-user-btn) {
-  margin-left: 10px; /* Espacio solo entre botones que no son el header user */
+  margin-left: 10px; 
 }
 
 .nav-links.desktop .btn:hover {
   background-color: #e0b800;
   transform: scale(1.05);
 }
-/* Mobile menu button (hamburger) */
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -92,7 +92,7 @@
 .hamburger .bar {
   width: 100%;
   height: 3px;
-  background-color: #f8c24e; /* Color dorado para las barras */
+  background-color: #f8c24e; 
   border-radius: 2px;
   transition: all 0.3s ease-in-out;
 }
@@ -109,7 +109,7 @@
   transform: translateY(-9px) rotate(-45deg);
 }
 
-/* Mobile menu */
+
 .nav-links.mobile {
   display: none;
   position: fixed;
@@ -117,10 +117,10 @@
   right: -100%;
   width: 60%;
   height: 100vh;
-  background-color: #fff; /* Fondo blanco */
-  justify-content: center; /* Centrar los elementos verticalmente */
-  align-items: center; /* Alinear al centro horizontalmente */
-  padding: 40px 20px; /* Ajustar el espaciado superior */
+  background-color: #fff; 
+  justify-content: center; 
+  align-items: center; 
+  padding: 40px 20px; 
   transition: right 0.3s ease-in-out;
   flex-direction: column;
   z-index: 999;
@@ -131,38 +131,38 @@
 }
 
 .nav-links.mobile a {
-  color: #000; /* Color negro para los enlaces */
-  font-size: 1.3rem; /* Tamaño de fuente ajustado */
-  margin-bottom: 30px; /* Aumentar el espaciado entre enlaces */
+  color: #000; 
+  font-size: 1.3rem; 
+  margin-bottom: 30px; 
   text-decoration: none;
   font-weight: bold;
 }
 
-/* Botones de menú e ingresar en móvil */
+
 .nav-links.mobile .btn {
-  background-color: #f8c24e; /* Fondo dorado */
-  color: #000; /* Texto negro */
+  background-color: #f8c24e; 
+  color: #000; 
   border: none;
-  padding: 10px 40px; /* Ajuste de tamaño para un mejor aspecto */
+  padding: 10px 40px; 
   font-weight: bold;
   text-transform: uppercase;
   transition: background-color 0.3s, transform 0.3s;
   cursor: pointer;
-  margin-bottom: 20px; /* Ajuste de espaciado */
-  border-radius: 5px; /* Redondear los bordes del botón */
+  margin-bottom: 20px; 
+  border-radius: 5px; 
 }
 
 .nav-links.mobile .btn:hover {
-  background-color: #e0b800; /* Un poco más oscuro al pasar el mouse */
+  background-color: #e0b800; 
 }
 
-/* Botón de cerrar en menú móvil */
+
 .close-btn {
   position: absolute;
   top: 20px;
   right: 20px;
   font-size: 2rem;
-  color: #f8c24e; /* Color dorado */
+  color: #f8c24e; 
   background: none;
   border: none;
   cursor: pointer;

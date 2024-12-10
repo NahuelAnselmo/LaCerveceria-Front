@@ -3,7 +3,7 @@ import { useSession } from "../../../constans/Stores/useSesion";
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import './HeaderAdmin.css';
-import { FaUserCircle } from 'react-icons/fa'; // Icono de usuario
+import { FaUserCircle } from 'react-icons/fa'; 
 import { useState } from 'react';
 
 const HeaderAdmin = ({ toggleMenu }) => {
@@ -29,7 +29,7 @@ const HeaderAdmin = ({ toggleMenu }) => {
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
-    toggleMenu(); // Llama a toggleMenu para cerrar el menú si está abierto
+    toggleMenu(); 
   };
 
   return (

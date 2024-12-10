@@ -1,4 +1,4 @@
-// src/components/common/Header/ButtonsLink.jsx
+
 import { Link } from 'react-router-dom';
 import './buttonsLink.css'; 
 

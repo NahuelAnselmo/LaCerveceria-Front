@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { useSession } from '../../../constans/Stores/useSesion';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import { FaUserCircle } from 'react-icons/fa'; // Icono de usuario
+import { FaUserCircle } from 'react-icons/fa'; 
 
 import './headerUser.css';
 
 const HeaderUser = () => {
-  const { user, logout } = useSession(); // Accede al estado de la sesión aquí
+  const { user, logout } = useSession(); 
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -23,12 +23,12 @@ const HeaderUser = () => {
 
     if (action.isConfirmed) {
       logout();
-      navigate('/'); // Redirige al usuario a la página de inicio después de cerrar sesión
+      navigate('/');
     }
   };
 
   const handleEditUser = () => {
-    navigate('/user/edit'); // Redirige al usuario a la página de edición
+    navigate('/user/edit'); 
   };
 
   const toggleMenu = () => {
