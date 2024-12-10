@@ -19,21 +19,21 @@ export const postLoginFn = async (data) => {
       throw new Error(errorData.message || "Ocurrió un error al iniciar sesión");
     }
 
-    // Obtener los datos de la respuesta solo una vez
+
     const resData = await res.json();
     console.log("Datos de respuesta del servidor:", resData);
 
-    // Asegúrate de estar accediendo al token correctamente
+
     const token = resData?.data?.token || resData?.token;
     if (!token || token === "undefined" || token === "null") {
       throw new Error("Token inválido. No se puede almacenar.");
     }
 
-    // Almacenar el token en localStorage
+
     localStorage.setItem("token", token);
     console.log("Token almacenado en localStorage:", localStorage.getItem("token"));
 
-    // Decodificar el token y obtener los datos del usuario
+ 
     const userData = decodeJWT(token)?.user;
     if (!userData) {
       throw new Error("Error al decodificar el token.");
@@ -48,7 +48,7 @@ export const postLoginFn = async (data) => {
 };
 
 
-// Función para registrar usuarios
+
 export const postRegisterFn = async (data) => {
   try {
     console.log("Iniciando solicitud de registro en:", BACKEND_URL);
@@ -67,7 +67,7 @@ export const postRegisterFn = async (data) => {
     }
 
     console.log("Registro exitoso. Iniciando sesión automáticamente...");
-    // Iniciar sesión automáticamente después del registro exitoso
+
     return await postLoginFn({
       email: data.email,
       password: data.password,
@@ -78,10 +78,10 @@ export const postRegisterFn = async (data) => {
   }
 };
 
-// PUT REGISTER FUNCTION
+
 export const putRegisterFn = async (userId, updatedData) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/users/${userId}`, {
+    const res = await fetch(`${BACKEND_URL}/api/v1/users/${userId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -104,10 +104,9 @@ export const putRegisterFn = async (userId, updatedData) => {
   }
 };
 
-// GET by ID
 export const fetchUserById = async (id) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/users/${id}`, {
+    const res = await fetch(`${BACKEND_URL}/api/v1/users/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -129,10 +128,10 @@ export const fetchUserById = async (id) => {
   }
 };
 
-// GET REGISTER FUNCTION EMAIL CONTROL
+
 export const checkEmailExists = async (email) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/users/check-email?email=${email}`, {
+    const res = await fetch(`${BACKEND_URL}/api/v1/users/check-email?email=${email}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -151,14 +150,14 @@ export const checkEmailExists = async (email) => {
   }
 };
 
-// PUT Edit User Function
+
 export const putEditUserFn = async (userId, updatedData) => {
   try {
     const res = await fetch(`${BACKEND_URL}/api/v1/auth/edit/${userId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`, // Token para autenticar
+        Authorization: `Bearer ${localStorage.getItem("token")}`, 
       },
       body: JSON.stringify(updatedData),
     });

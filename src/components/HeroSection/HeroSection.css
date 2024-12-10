@@ -11,7 +11,7 @@
   position: relative;
 }
 
-/* Overlay oscuro */
+
 .hero-section::before {
   content: "";
   position: absolute;

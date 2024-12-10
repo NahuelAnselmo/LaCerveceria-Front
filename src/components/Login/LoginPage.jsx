@@ -61,7 +61,7 @@ const LoginPage = () => {
     setLoading(false);
   };
 
-  // Utiliza el token para acceder a rutas protegidas
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {

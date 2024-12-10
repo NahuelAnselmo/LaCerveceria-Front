@@ -15,7 +15,7 @@ export const getProductsFn = async () => {
 
 export const createProduct = async (productData) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/products`, {
+    const res = await fetch(`${BACKEND_URL}/api/v1/products`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +36,7 @@ export const createProduct = async (productData) => {
 
 export const updateProduct = async (productId, updatedData) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/products/${productId}`, {
+    const res = await fetch(`${BACKEND_URL}/api/v1/products/${productId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export const updateProduct = async (productId, updatedData) => {
 
 export const deleteProduct = async (productId) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/products/${productId}`, {
+    const res = await fetch(`${BACKEND_URL}/api/v1/products/${productId}`, {
       method: "DELETE",
     });
     if (!res.ok) {

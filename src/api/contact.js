@@ -25,7 +25,7 @@ export const postContacts = async (data) => {
 
 export const getContacts = async () => {
   try {
-    const res = await fetch(`${BACKEND_URL}/contact`);
+    const res = await fetch(`${BACKEND_URL}/api/v1/contact`);
     const data = await res.json();
 
     if (!res.ok) {
