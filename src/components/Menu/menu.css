@@ -127,6 +127,7 @@
 
 
 @media (max-width: 768px) {
+
   .menu-cart {
     grid-template-columns: 1fr; 
     margin-top: 80px;
@@ -146,13 +147,16 @@
     padding: 10px;
   }
   .category-dropdown {
-    top: 10px; 
+    top: 50px; 
     font-size: 14px; 
     width: 85%;
-    z-index: 10;
+    z-index: 1000;
  
   }
   .card-styles:hover {
     transform: none; 
   }
 }
+
+
+
