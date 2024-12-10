@@ -22,12 +22,12 @@
 .button-quantity{
   border: none;
   border-radius: 16px;
-  background-color: white;
-  color: #ffffff;
+  background-color: #1e1e1e;
+  color: #1e1e1e;
 }
 .button-quantity:disabled{
-  color: #ffffff;  
-  background-color: white;
+  color: #1e1e1e;  
+  background-color: #1e1e1e;
 }
 .button-card{
   border: 1px solid #FFD700;
