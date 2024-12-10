@@ -87,7 +87,7 @@
 
 .select-category-scroll {
   position: fixed;
-  top: 50px; /* Ajusta según sea necesario */
+  top: 50px; 
   left: 50%;
   transform: translateX(-50%);
   background-color: #FFD700;

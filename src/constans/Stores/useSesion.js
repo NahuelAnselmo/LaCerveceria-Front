@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { decodeJWT } from "../../utilities/decodeJWT";
 
 export const useSession = create((set) => {
-  // Inicializar estado con valores del localStorage
+  
   const token = localStorage.getItem("token");
   let user = null;
   let isLoggedIn = false;
@@ -23,7 +23,7 @@ export const useSession = create((set) => {
     isLoggedIn,
     login: (newToken) => {
       try {
-        localStorage.setItem("token", newToken); // Guardar el token en localStorage
+        localStorage.setItem("token", newToken); 
         const userData = decodeJWT(newToken).user;
         set({ user: userData, isLoggedIn: true });
         console.log("Login exitoso. isLoggedIn debe ser true ahora.");

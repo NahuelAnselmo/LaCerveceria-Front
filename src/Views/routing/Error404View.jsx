@@ -9,7 +9,7 @@ const Error404View = () => {
       <div className="text-center pt-5">
         <div className="container">
         </div>
-        <img src="public\404.jpg" className="w-10" alt="enano ebrio" />
+        <img src="/404.jpg" className="w-10" alt="error" />
         <div className="py-4">
 
         <button onClick={() => navigate("/")} className="btn btn-secondary mt-3">

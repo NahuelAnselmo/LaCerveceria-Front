@@ -2,7 +2,7 @@
   margin: 20px auto;
   width: 95%;
   padding: 20px;
-  background-color: #ffffff; /* Fondo blanco */
+  background-color: #ffffff; 
 }
 
 .category-item {
@@ -12,17 +12,17 @@
 
 .category-image {
   width: 100%;
-  height: 350px; /* Ajustar la altura para ocupar más espacio */
-  object-fit: cover; /* Asegurar que la imagen se ajuste bien al contenedor */
+  height: 350px; 
+  object-fit: cover; 
 }
 
-/* Ocultar las flechas de navegación */
+
 .slick-prev,
 .slick-next {
   display: none !important;
 }
 
-/* Ocultar los puntos indicadores (dots) */
+
 .slick-dots {
   display: none !important;
 }

@@ -26,7 +26,6 @@ const CartModal = ({
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    // Recuperar número de mesa de localStorage al cargar el componente
     const savedTableNumber = localStorage.getItem("tableNumber");
     if (savedTableNumber) {
       setTableNumber(savedTableNumber);
@@ -77,26 +76,25 @@ const CartModal = ({
 
       if (isConfirmed) {
         const items = cart.map(item => ({
-          productId: item.id, // Asegúrate de que 'item.id' sea el ObjectId que espera el esquema
+          productId: item.id, 
           name: item.name,
           quantity: item.quantity,
           price: item.price,
-          total: item.price * item.quantity, // Calcular el total por cada item
+          total: item.price * item.quantity, 
         }));
     
         const orderData = {
           tableNumber,
-          items, // Usa el nuevo array de items
+          items, 
           totalAmount,
           comment,
         };
     
-        console.log("Datos del pedido:", orderData); // Para depuración
+        console.log("Datos del pedido:", orderData); 
         
           const newOrder = await createOrder(orderData);
-          // Procesa el nuevo pedido como necesites aquí
           console.log('Nuevo pedido creado:', newOrder);    
-          // Resetear campos si es necesario
+
           onConfirm(tableNumber, comment, cart, totalAmount );
           setComment("");
           setResetCount(true);      

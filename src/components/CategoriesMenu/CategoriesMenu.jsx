@@ -2,9 +2,9 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import "./CategoriesMenu.css"; // Archivo de estilo personalizado
+import "./CategoriesMenu.css"; 
 
-// Importación de las imágenes desde la nueva ubicación
+
 import cerveza1 from "../../assets/Images/cerveza1.jpg";
 import cerveza2 from "../../assets/Images/cerveza2.jpg";
 import cerveza3 from "../../assets/Images/cerveza3.jpg";
@@ -20,16 +20,16 @@ import milanesa2 from "../../assets/Images/milanesa2.jpeg";
 
 const Categories = () => {
   const settings = {
-    dots: false, // No mostrar los puntos indicadores de cada slide
-    infinite: true, // Ciclo infinito de los slides
-    speed: 750, // Velocidad de transición
-    slidesToShow: 5, // Cuántas imágenes mostrar al mismo tiempo
-    slidesToScroll: 1, // Cuántas imágenes desplazar al hacer clic en los botones de navegación
-    autoplay: true, // Reproducción automática
-    autoplaySpeed: 1500, // Tiempo entre cada transición automática
-    pauseOnHover: true, // Detener la reproducción automática al pasar el mouse por encima
-    cssEase: "ease-in-out", // Efecto de transición más suave
-    arrows: false, // Eliminar las flechas de navegación
+    dots: false, 
+    infinite: true, 
+    speed: 750, 
+    slidesToShow: 5, 
+    slidesToScroll: 1, 
+    autoplay: true, 
+    autoplaySpeed: 1500, 
+    pauseOnHover: true, 
+    cssEase: "ease-in-out", 
+    arrows: false, 
     responsive: [
       {
         breakpoint: 1024,
@@ -50,7 +50,6 @@ const Categories = () => {
 
   return (
     <div className="categories-slider">
-      {/* Slider de Cervezas */}
       <Slider {...settings}>
         {[cerveza1, cerveza2, cerveza3, cerveza4, trago1, trago2].map((image, index) => (
           <div key={`cerveza-${index}`} className="category-item">
@@ -59,7 +58,6 @@ const Categories = () => {
         ))}
       </Slider>
 
-      {/* Slider de Comidas */}
       <Slider {...settings}>
         {[comida1, comida2, comida3, comida4, milanesa1, milanesa2].map((image, index) => (
           <div key={`comida-${index}`} className="category-item">

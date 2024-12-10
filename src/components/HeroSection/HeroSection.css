@@ -4,9 +4,9 @@
   background-position: center;
   height: 75vh;
   display: flex;
-  justify-content: flex-start; /* Cambia el texto hacia la izquierda */
+  justify-content: flex-start; 
   align-items: center;
-  padding-left: 50px; /* Ajusta este valor según el espaciado que desees desde el borde izquierdo */
+  padding-left: 50px; 
   color: white;
   position: relative;
 }
@@ -19,15 +19,15 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según sea necesario */
+  background-color: rgba(0, 0, 0, 0.5); 
   z-index: 1;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  text-align: left; /* Alinea el texto completamente a la izquierda */
-  max-width: 600px; /* Limita el ancho del texto para que no ocupe todo el espacio */
+  text-align: left; 
+  max-width: 600px; 
 }
 
 .hero-content h1 {
@@ -41,18 +41,18 @@
   margin-top: 10px;
 }
 
-/* Ajustes Responsive */
+
 @media (max-width: 768px) {
   .hero-section {
-    height: 60vh; /* Menor altura en pantallas pequeñas */
-    padding-left: 20px; /* Reduce el espaciado desde el borde izquierdo en móviles */
+    height: 60vh; 
+    padding-left: 20px; 
   }
 
   .hero-content h1 {
-    font-size: 2.5rem; /* Ajusta el tamaño del título en móviles */
+    font-size: 2.5rem; 
   }
 
   .hero-content h2 {
-    font-size: 1.5rem; /* Ajusta el tamaño del subtítulo en móviles */
+    font-size: 1.5rem; 
   }
 }

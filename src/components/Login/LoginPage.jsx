@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import Input from '../ui/Input/Input'; // Componente Input personalizado
+import Input from '../ui/Input/Input'; 
 import './Login.css';
 import logo from '../../assets/Fondos/logo.png';
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL; // Para Vite
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL; 
 
 const LoginPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -25,7 +25,7 @@ const LoginPage = () => {
         }),
       });
 
-      // Verificar si la respuesta fue exitosa
+
       if (!response.ok) {
         const errorData = await response.json();
         console.error("Error del servidor:", errorData.message);
@@ -36,7 +36,7 @@ const LoginPage = () => {
 
       const result = await response.json();
 
-      // Verificar si el token existe en la respuesta
+      
       const token = result?.data?.token || result?.token;
 
       if (!token || token === "undefined" || token === "null") {
@@ -46,11 +46,11 @@ const LoginPage = () => {
         return;
       }
 
-      // Almacenar el token en localStorage
+      
       localStorage.setItem('token', token);
       console.log("Token almacenado en localStorage:", token);
 
-      // Redirigir al inicio y recargar la página para actualizar el header
+      
       navigate('/');
       window.location.reload();
       
@@ -68,7 +68,7 @@ const LoginPage = () => {
       fetch(`${BACKEND_URL}/api/v1/some-protected-route`, {
         method: 'GET',
         headers: {
-          'Authorization': `Bearer ${token}`, // Incluye el token en los headers
+          'Authorization': `Bearer ${token}`, 
           'Content-Type': 'application/json',
         },
       })
@@ -83,9 +83,9 @@ const LoginPage = () => {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Borra el token del almacenamiento local
-    navigate('/login'); // Redirige al login
-    window.location.reload(); // Recarga la página para limpiar cualquier estado cacheado
+    localStorage.removeItem('token'); 
+    navigate('/login'); 
+    window.location.reload(); 
   };
   
 
@@ -126,7 +126,7 @@ const LoginPage = () => {
   </div>
 </form>
  
-      {/* Botón para volver al inicio */}
+
       <button onClick={() => navigate('/')} className="btn btn-warning">Volver al inicio</button>
     </div>
   );

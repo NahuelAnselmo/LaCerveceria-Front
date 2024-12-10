@@ -1,4 +1,4 @@
-/* EditUser.css - especificado para evitar conflictos */
+
 
 .edit-user-container-edituser {
     display: flex;
@@ -12,26 +12,26 @@
 }
 
 .edit-user-container-edituser form {
-    background: rgba(255, 255, 255, 0.95); /* Blanco con algo de transparencia para resaltar el fondo */
+    background: rgba(255, 255, 255, 0.95); 
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Incrementar un poco el efecto de sombra */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); 
     max-width: 500px;
     width: 100%;
-    text-align: left; /* Cambiado a izquierda para mejor alineación */
+    text-align: left; 
 }
 
 .edit-user-container-edituser h2 {
     margin-bottom: 20px;
-    color: #f25c05; /* Usar un color similar al del sitio */
+    color: #f25c05; 
     font-weight: bold;
     font-size: 24px;
-    text-align: center; /* Alinear el título al centro */
+    text-align: center; 
 }
 
 .form-group-edituser {
     margin-bottom: 20px;
-    text-align: left; /* Alinear etiquetas a la izquierda */
+    text-align: left; 
     position: relative;
 }
 
@@ -110,5 +110,5 @@
 }
 
 .btn-submit-edituser:hover {
-    background-color: #e14a00; /* Un tono ligeramente más oscuro para el hover */
+    background-color: #e14a00; 
 }

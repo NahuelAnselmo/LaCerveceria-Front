@@ -29,11 +29,11 @@
 .aboutUs-text {
   text-align: center;
   margin: 0 auto 30px;
-  max-width: 800px; /* Limitar el ancho del texto para mejor legibilidad */
+  max-width: 800px; 
   line-height: 1.5;
-  font-style: italic; /* Estilo cursiva para destacar el texto */
+  font-style: italic; 
   font-size: 1.2rem;
-  color: black; /* Color gris claro para mejor contraste */
+  color: black; 
 }
 
 @keyframes title {
@@ -75,7 +75,7 @@
   margin-top: 10px;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #ffcc00; /* Color dorado para los nombres */
+  color: #ffcc00; 
 }
 
 .memberDescription {

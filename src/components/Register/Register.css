@@ -1,11 +1,11 @@
-/* Estilo general para el formulario */
+
 .register-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #000; /* Fondo negro */
+  background-color: #000; 
 }
 
 .register-logo {
@@ -13,7 +13,7 @@
   margin-bottom: 20px;
 }
 
-/* Estilos para el formulario */
+
 .register-form-user-auth {
   max-width: 400px;
   margin: 0 auto;
@@ -30,7 +30,7 @@
   text-align: center;
 }
 
-/* Estilo para los inputs */
+
 .register-form-group {
   position: relative;
   margin-bottom: 20px;
@@ -51,12 +51,12 @@ form.register-form-user-auth input.register-form-control:focus {
   border: 2px solid #f44336 !important;
 }
 
-/* Placeholder visible */
+
 form.register-form-user-auth input.register-form-control::placeholder {
   color: #888 !important;
 }
 
-/* Estilos para los mensajes de error */
+
 .is-invalid {
   border-color: #dc3545;
 }
@@ -66,7 +66,7 @@ form.register-form-user-auth input.register-form-control::placeholder {
   font-size: 0.875rem;
 }
 
-/* Contenedor para la contraseña y el ícono de visibilidad */
+
 .register-password-container {
   position: relative;
 }
@@ -85,7 +85,7 @@ form.register-form-user-auth input.register-form-control::placeholder {
   color: #fff;
 }
 
-/* Botón de envío */
+
 .register-submit-btn {
   background-color: #f44336;
   color: white;
@@ -107,7 +107,7 @@ form.register-form-user-auth input.register-form-control::placeholder {
   cursor: not-allowed;
 }
 
-/* Estilos para los iconos sociales */
+
 .social-icons {
   display: flex;
   justify-content: center;
@@ -129,16 +129,16 @@ form.register-form-user-auth input.register-form-control::placeholder {
   background-color: #555;
 }
 
-/* Enlace para iniciar sesión */
+
 .login-link {
   text-align: center;
   display: block;
   margin-top: 20px;
-  color: #ccc; /* Texto gris */
+  color: #ccc; 
 }
 
 .login-link a {
-  color: #007bff; /* Color azul para "Inicia sesión aquí" */
+  color: #007bff; 
   text-decoration: none;
 }
 
@@ -146,7 +146,7 @@ form.register-form-user-auth input.register-form-control::placeholder {
   text-decoration: underline;
 }
 
-/* Botón para volver al inicio */
+
 .register-btn-primary {
   background-color: #007bff;
   color: white;
@@ -164,7 +164,7 @@ form.register-form-user-auth input.register-form-control::placeholder {
   background-color: #0056b3;
 }
 
-/* Responsivo para pantallas pequeñas */
+
 @media (max-width: 600px) {
   .register-page {
     padding: 20px;

@@ -5,10 +5,10 @@ import { useNavigate, Link } from "react-router-dom";
 import Input from "../ui/Input/Input";
 import SocialIcons from "../SocialIcons/SocialIcons";
 import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // Importar iconos de visibilidad
+import { FaEye, FaEyeSlash } from "react-icons/fa"; 
 import { validateName, validateEmail, validatePassword } from "./validators";
 import "./Register.css";
-import logo from "../../assets/Fondos/logo.png"; // Asegúrate de que la ruta sea correcta
+import logo from "../../assets/Fondos/logo.png"; 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const RegisterPage = () => {
@@ -29,9 +29,9 @@ const RegisterPage = () => {
     },
   });
 
-  const [loading, setLoading] = useState(false); // Estado para manejar el loading
-  const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar contraseña
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Estado para mostrar/ocultar confirmar contraseña
+  const [loading, setLoading] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false); 
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); 
 
   const navigate = useNavigate();
 
@@ -42,11 +42,11 @@ const RegisterPage = () => {
     }
   
     toast.loading("Cargando...");
-    setLoading(true); // Activar loading
+    setLoading(true); 
     try {
       console.log("➡️ Enviando datos de registro:", data);
       const response = await fetch(
-        `${BACKEND_URL}/api/v1/auth/register`, // Cambiar la URL local por BACKEND_URL
+        `${BACKEND_URL}/api/v1/auth/register`, 
         {
           method: "POST",
           headers: {
@@ -64,7 +64,7 @@ const RegisterPage = () => {
   
       if (response.ok) {
         toast.success("Cuenta creada exitosamente");
-        navigate("/login"); // Redirige al login después de registro exitoso
+        navigate("/login"); 
       } else {
         console.error("❌ Error en la respuesta:", result);
         toast.error(result.message || "Error al crear cuenta");
@@ -73,8 +73,8 @@ const RegisterPage = () => {
       console.error("❌ Error en la conexión:", error);
       toast.error("Error de conexión");
     } finally {
-      setLoading(false); // Desactivar loading
-      toast.dismiss(); // Detener el loading toast
+      setLoading(false); 
+      toast.dismiss(); 
     }
   };
 
@@ -200,7 +200,6 @@ const RegisterPage = () => {
         ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión aquí</Link>
       </p>
 
-      {/* Botón para volver al inicio */}
       <button onClick={() => navigate("/")} className="btn btn-warning">
         Volver al inicio
       </button>

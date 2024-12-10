@@ -1,4 +1,4 @@
-/* Contenedor principal de la página de login */
+
 .login-page {
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@
 .form-control,
 button[type="submit"] {
   width: 100%;
-  box-sizing: border-box; /* Asegura que el ancho incluya el padding y borde */
+  box-sizing: border-box; 
 }
 
 .form-control {
@@ -62,7 +62,7 @@ button[type="submit"] {
   font-size: 0.875rem;
 }
 
-/* Botón de envío */
+
 button[type="submit"] {
   background-color: #f44336;
   color: white;

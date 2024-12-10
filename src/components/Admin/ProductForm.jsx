@@ -41,7 +41,7 @@ const ProductForm = ({ initialData, onSubmit, onCancel, refreshProducts }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    // Validación manual de campos requeridos
+
     if (!formData.category) {
       Swal.fire({
         icon: "error",
@@ -49,12 +49,12 @@ const ProductForm = ({ initialData, onSubmit, onCancel, refreshProducts }) => {
         text: "Debes seleccionar una categoría.",
         confirmButtonText: "Entendido",
       });
-      return; // No enviar el formulario si la categoría está vacía
+      return; 
     }
   
     try {
-      await onSubmit(formData); // Intenta guardar el producto
-      await refreshProducts(); // Actualiza la lista de productos
+      await onSubmit(formData); 
+      await refreshProducts(); 
   
       Swal.fire({
         icon: "success",
@@ -63,7 +63,7 @@ const ProductForm = ({ initialData, onSubmit, onCancel, refreshProducts }) => {
         timer: 2000,
       });
   
-      // Limpia el formulario si no es edición
+
       if (!initialData) {
         setFormData({
           name: "",

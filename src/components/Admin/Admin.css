@@ -1,4 +1,4 @@
-/* Estilos globales */
+
 .AdminViewcss {
   background-color: #6e6e6e;
 }
@@ -22,7 +22,7 @@
   margin-bottom: 80px;
 }
 
-/* Floating label y formularios */
+
 .form-group {
   display: flex;
   margin-bottom: 20px;
@@ -56,11 +56,11 @@ input, select, textarea {
   border-radius: 5px;
   margin-bottom: 20px;
   border: 1px solid #ddd;
-  padding-left: 40px; /* Espacio para el icono */
+  padding-left: 40px; 
 }
 
 input.form-style, select.form-style, textarea.form-style {
-  padding-left: 38px; /* Espacio para el icono */
+  padding-left: 38px; 
 }
 
 input[type="text"].error,
@@ -75,7 +75,7 @@ select.error {
 .form-group i {
   position: absolute;
   left: 10px;
-  top: 50%; /* Centrado verticalmente */
+  top: 50%; 
   transform: translateY(-50%);
   font-size: 20px;
   color: #3d3d3d;
@@ -123,7 +123,7 @@ select{
 }
 
 @media (max-width: 1100px) {
-  /* Organizar el formulario en columna */
+
   .admin-form {
     max-width: 700px;
     flex-direction: column;
@@ -131,7 +131,7 @@ select{
     gap: 20px;
   }
 
-  /* Hacer las tarjetas más pequeñas */
+
   .category-section .card {
     min-width: 180px;
   }
@@ -163,14 +163,14 @@ select{
     padding: 15px;
   }
 
-  /* Reducir tamaño de tarjetas */
+
   .category-section .card {
     min-width: 150px;
   }
 }
 
 @media (max-width: 480px) {
-  /* Disposición en columna para formularios en pantallas pequeñas */
+
   .form-row {
     flex-direction: column;
     gap: 5px;
@@ -181,7 +181,7 @@ select{
     padding: 20px;
   }
 
-  /* Tamaño más pequeño para las tarjetas */
+
   .category-section .card {
     margin: 0 auto;
     text-align: center;

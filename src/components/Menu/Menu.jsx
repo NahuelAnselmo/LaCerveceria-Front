@@ -104,7 +104,7 @@ const Menu = () => {
   };
 
   useEffect(() => {
-    queryClient.invalidateQueries(["menu"]); // Refresca la consulta "menu" en React Query
+    queryClient.invalidateQueries(["menu"]); 
   }, [refreshKey, queryClient]);
 
   if (isLoading) {

@@ -20,7 +20,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(0.3); /* Reduce la luminosidad para oscurecer el fondo */
+  filter: brightness(0.3); 
   z-index: -1;
 }
 
@@ -31,7 +31,7 @@
   width: 100%;
   max-width: 1400px;
   gap: 60px;
-  z-index: 1; /* Asegúrate de que el contenido esté por encima del fondo */
+  z-index: 1; 
 }
 
 .footer-logo {
@@ -69,13 +69,13 @@
 
 .footer-social {
   flex: 1;
-  text-align: center; /* Cambié de `right` a `center` para mejor alineación */
+  text-align: center; 
 }
 
 .footer-social .social-icons {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Espacio entre los íconos */
+  gap: 20px; 
 }
 
 .footer-social .social-icon {
@@ -86,21 +86,21 @@
   height: 50px;
   margin: 0 10px;
   border-radius: 50%;
-  background-color: #ffffff; /* Fondo blanco */
-  color: #333; /* Color oscuro para los íconos (puede ser negro o gris oscuro) */
+  background-color: #ffffff; 
+  color: #333; 
   font-size: 20px;
   transition: background-color 0.3s, transform 0.3s, color 0.3s, box-shadow 0.3s;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Añadir una sombra suave */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); 
 }
 
 .footer-social .social-icon:hover {
-  background-color: #ffcc00; /* Fondo dorado al pasar el mouse */
-  color: #ffffff; /* Ícono blanco para un buen contraste sobre el dorado */
-  transform: scale(1.1); /* Agrandar ligeramente en hover */
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada en hover */
+  background-color: #ffcc00; 
+  color: #ffffff; 
+  transform: scale(1.1); 
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5); 
 }
 
-/* Responsividad */
+
 @media (max-width: 767px) {
   .footer-container {
     flex-direction: column;
@@ -119,11 +119,11 @@
   }
 
   .footer-social {
-    margin-top: 20px; /* Aumenté el margen superior en pantallas pequeñas */
+    margin-top: 20px; 
   }
 
   .footer-social .social-icon {
     width: 40px;
-    height: 40px; /* Tamaño reducido para pantallas pequeñas */
+    height: 40px; 
   }
 }

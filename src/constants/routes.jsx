@@ -8,14 +8,14 @@ import AdminView from "../Views/routing/AdminView";
 import LoginPageView from "../Views/routing/LoginPageView";
 import RegisterPageView from "../Views/routing/RegisterPageView";
 import AuthLayout from "../components/AuthLayout/AuthLayout";
-import EditUserView from "../Views/routing/EditUserView"; // Importamos la vista de editar usuario
+import EditUserView from "../Views/routing/EditUserView"; 
 import MenuView from "../Views/routing/MenuView";
 import PublicMenuView from "../Views/routing/PublicMenuView";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootView />, // Este contiene el header
+    element: <RootView />, 
     children: [
       {
         path: "/",
@@ -27,31 +27,31 @@ export const router = createBrowserRouter([
           },
           {
             path: "public-menu",
-            element: <PublicMenuView />, // Corregido para mostrar el menú público
+            element: <PublicMenuView />, 
           },
         ],
       },
       {
         path: "user",
-        element: <PrivateView />, // Para usuarios autenticados y administradores
+        element: <PrivateView />, 
         children: [
           {
             path: "edit",
-            element: <EditUserView />, // Página para editar usuario
+            element: <EditUserView />, 
           },
           {
             path: "menu",
-            element: <MenuView />, // Página del menú para administradores
+            element: <MenuView />, 
           },
         ],
       },
       {
         path: "admin",
-        element: <PrivateView />, // Solo para administradores (usando la lógica de diferenciación en PrivateView)
+        element: <PrivateView />, 
         children: [
           {
             path: "",
-            element: <AdminView />, // Página de administrador
+            element: <AdminView />, 
           },
 
         ],
@@ -59,8 +59,8 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/", // Páginas de autenticación (sin header)
-    element: <AuthLayout />, // Envolvemos login y register en AuthLayout
+    path: "/", 
+    element: <AuthLayout />, 
     children: [
       {
         path: "login",

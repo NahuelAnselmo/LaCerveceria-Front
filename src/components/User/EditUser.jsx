@@ -31,7 +31,7 @@ const EditUser = () => {
 
   useEffect(() => {
     if (user?.id) {
-      // Inicializar los valores del formulario con los datos del usuario actual
+      
       setValue('username', user.username);
       setValue('email', user.email);
     }
@@ -56,7 +56,7 @@ const EditUser = () => {
     });
   
     try {
-      const response = await fetch(`${BACKEND_URL}/api/v1/auth/edit/${user.id}`, { // Cambia aquí
+      const response = await fetch(`${BACKEND_URL}/api/v1/auth/edit/${user.id}`, { 
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

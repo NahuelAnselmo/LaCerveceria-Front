@@ -7,7 +7,7 @@ const AdminView = () => {
   const [products, setProducts] = useState([]);
   const [editingProduct, setEditingProduct] = useState(null);
 
-  // Obtener la lista de productos
+  
   const fetchProducts = async () => {
     try {
       const response = await getProductsFn();
@@ -22,7 +22,7 @@ const AdminView = () => {
     fetchProducts();
   }, []);
 
-  // Crear un nuevo producto
+
   const handleAddProduct = async (product) => {
     try {
       const newProduct = await createProduct(product);
@@ -34,7 +34,7 @@ const AdminView = () => {
     }
   };
 
-  // Actualizar un producto existente
+
   const handleUpdateProduct = async (updatedProduct) => {
     const { id, ...dataProduct } = updatedProduct;
     try {
@@ -45,14 +45,14 @@ const AdminView = () => {
             product.id === id ? updated : product
           )
         );
-        setEditingProduct(null); // Limpiar el estado de edición
+        setEditingProduct(null); 
       }
     } catch (error) {
       console.error('Error al actualizar el producto:', error);
     }
   };
 
-  // Eliminar un producto
+
   const handleDeleteProduct = async (productId) => {
     try {
       const success = await deleteProduct(productId);
@@ -66,7 +66,7 @@ const AdminView = () => {
     }
   };
 
-  // Manejar la edición de productos
+
   const handleEditProduct = (product) => {
     setEditingProduct(product);
     window.scrollTo({ top: 0, behavior: 'smooth' });

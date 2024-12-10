@@ -1,68 +1,68 @@
-/* Contenedor principal de la sección de contacto */
+
 .contact-section {
   display: flex;
-  justify-content: space-between; /* Distribuye uniformemente el mapa y el formulario */
-  align-items: stretch; /* Estira ambos elementos verticalmente */
-  gap: 20px; /* Espacio entre el mapa y el formulario */
-  padding: 40px; /* Añade espacio alrededor del contenedor */
-  flex-wrap: wrap; /* Permite reorganizar en pantallas más pequeñas */
-  width: 100%; /* Asegura que ocupe todo el ancho */
+  justify-content: space-between; 
+  align-items: stretch; 
+  gap: 20px; 
+  padding: 40px; 
+  flex-wrap: wrap; 
+  width: 100%; 
   box-sizing: border-box;
-  background-color: #f5f5f5; /* Fondo neutro para diferenciar la sección */
-  border-radius: 15px; /* Bordes redondeados */
+  background-color: #f5f5f5; 
+  border-radius: 15px; 
 }
 
-/* Estilo del contenedor del mapa */
+
 .contact-map {
-  flex: 1; /* Toma el espacio disponible */
-  max-width: 48%; /* Limita el ancho máximo del mapa */
+  flex: 1; 
+  max-width: 48%; 
   background-color: #1e1e1e;
   padding: 20px;
-  border: 2px solid #ffd700; /* Añade un borde amarillo dorado */
+  border: 2px solid #ffd700; 
   border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Sombra para destacarlo */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); 
   overflow: hidden;
-  display: flex; /* Para que el mapa ocupe toda la altura disponible */
+  display: flex; 
   flex-direction: column;
 }
 
-/* Asegura que el iframe ocupe todo el espacio del contenedor */
+
 .contact-map iframe {
   flex: 1;
   width: 100%;
-  height: 100%; /* Ajusta la altura para ocupar todo el contenedor */
+  height: 100%; 
   border: none;
 }
 
-/* Estilo del contenedor del formulario */
+
 .contact-form {
-  flex: 1; /* Toma el espacio disponible */
-  max-width: 48%; /* Limita el ancho máximo del formulario */
-  background-color: #ffffff; /* Fondo blanco para diferenciarse del mapa */
+  flex: 1; 
+  max-width: 48%; 
+  background-color: #ffffff; 
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Asegura que el contenido se distribuya uniformemente */
+  justify-content: space-between; 
 }
 
-/* Estilo para el formulario */
+
 .form-contacto {
-  width: 100%; /* Ancho completo */
+  width: 100%; 
   flex: 1;
 }
 
-/* Título del formulario */
+
 .form-h2 {
   font-size: 1.8em;
-  color: #333; /* Color más oscuro para mejorar la legibilidad */
+  color: #333; 
   margin-bottom: 20px;
 }
 
-/* Botón de enviar */
+
 .button-submit {
-  background-color: #ff4b2b; /* Color rojo para destacar */
+  background-color: #ff4b2b; 
   color: white;
   font-weight: bold;
   border: none;
@@ -73,14 +73,14 @@
 }
 
 .button-submit:hover {
-  background-color: #e04324; /* Cambio de color para indicar interactividad */
+  background-color: #e04324; 
 }
 
-/* Ajuste para el textarea */
+
 .textarea-contacto {
   width: 100%;
-  height: 100px; /* Aumenta la altura para mayor comodidad al escribir */
-  resize: none; /* Evita el redimensionado manual */
+  height: 100px; 
+  resize: none; 
 }
 
 .input-group {
@@ -93,14 +93,14 @@
   margin-top: 5px;
 }
 
-/* Estilo para dispositivos móviles */
+
 @media (max-width: 768px) {
   .contact-section {
-    flex-direction: column; /* Coloca los elementos uno debajo del otro */
+    flex-direction: column; 
   }
 
   .contact-map,
   .contact-form {
-    max-width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+    max-width: 100%; 
   }
 }
