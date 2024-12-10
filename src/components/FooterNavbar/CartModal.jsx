@@ -185,11 +185,34 @@ const CartModal = ({
 
         {initialTableNumber || localStorage.getItem("tableNumber") ?  (
           <div className="form-group">
-            <h5 className="title-enfasis">
+            <h5 className="title-enfasis pr-5">
               Número de mesa: {localStorage.getItem("tableNumber") || initialTableNumber}
             </h5>
+            <button
+            type="button"
+      className="btn btn-warning text-dark "
+      onClick={() => setTableNumber("")} // Resetea el estado para mostrar el input
+    >
+      Modificar Número de Mesa
+    </button>
           </div>
         ) : null}
+
+{!tableNumber && (
+  <div className="form-group">
+    <input
+      type="text"
+      placeholder="Ingrese nuevo número de mesa"
+      value={tableNumber}
+      className="form-style"
+      maxLength="2"
+      onChange={(e) => setTableNumber(e.target.value)}
+    />
+    {errorMessage && <p className="error-message">{errorMessage}</p>}
+  </div>
+)}
+
+        
 
         <Input
           className="m-3 textarea-contacto"
@@ -226,7 +249,7 @@ const CartModal = ({
           }}
           register={register}
           textarea
-          placeholder="Escriba un mensaje, recuerde, aquí no se piden los números a las camareras"
+          placeholder="Escribe aquí lo que necesites que sepamos sobre tu pedido."
           maxLength={500}
           resetCount={resetCount}
           onChange={handleCommentChange}
