@@ -90,11 +90,9 @@ const CartModal = ({
           comment,
         };
     
-        console.log("Datos del pedido:", orderData); 
-        
+        console.log("Datos del pedido:", orderData);         
           const newOrder = await createOrder(orderData);
           console.log('Nuevo pedido creado:', newOrder);    
-
           onConfirm(tableNumber, comment, cart, totalAmount );
           setComment("");
           setResetCount(true);      
@@ -191,7 +189,7 @@ const CartModal = ({
             <button
             type="button"
       className="btn btn-warning text-dark "
-      onClick={() => setTableNumber("")} // Resetea el estado para mostrar el input
+      onClick={() => setTableNumber("")} 
     >
       Modificar Número de Mesa
     </button>

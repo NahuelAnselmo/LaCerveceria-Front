@@ -26,7 +26,7 @@ const Menu = () => {
     queryFn: () => getMenuFn(selectedCategory),
   });
   
-  console.log(menu);
+
   const [scrollTop, setScrollTop] = useState("select-category");
 
   const handleScroll = () => {
