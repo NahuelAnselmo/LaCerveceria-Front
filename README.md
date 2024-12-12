@@ -29,7 +29,7 @@ Este proyecto es una aplicación web para el bar "La Cerveceria", creada con Rea
 
 1. Clona este repositorio: 
    ```bash
-   git clone https://github.com/tu-usuario/elixir-and-bites.git
+   git clone https://github.com/NahuelAnselmo/LaCerveceria-Front
 ## Dependencias
 
 Este proyecto utiliza las siguientes dependencias:
