@@ -89,29 +89,30 @@ const ProductTable = ({ products, onEdit, onDelete }) => {
                     className="card-img-top"
                     src={product.imageUrl}
                   />
-                  <div className="card-body d-flex flex-column">
-                    <h5 className="card-title text-sm">{product.name}</h5>
-                    <p className="card-text text-sm">{product.description}</p>
-                    <p className="card-text text-sm">Precio: ${product.price}</p>
-                    <p className="card-text text-sm">Stock: {product.stock ? product.stock : "Sin stock"}</p>
-                    <p className="card-text text-sm">
-                      Disponible: {product.available ? "Sí" : "No"}
-                    </p>
-                    <div className="mt-auto d-flex justify-content-around">
-                      <button
-                        className="btn btn-secondary"
-                        onClick={() => handleEdit(product)}
-                      >
-                        Editar
-                      </button>
-                      <button
-                        className="btn btn-danger"
-                        onClick={() => handleDelete(product.id)}
-                      >
-                        Eliminar
-                      </button>
-                    </div>
-                  </div>
+<div className="card-body">
+  <h5 className="card-title">{product.name}</h5>
+  <p className="card-text">{product.description}</p>
+  <p className="card-text">Precio: ${product.price}</p>
+  <p className="card-text">Stock: {product.stock ? product.stock : "Sin stock"}</p>
+  <p className="card-text">
+    Disponible: {product.available ? "Sí" : "No"}
+  </p>
+  <div className="button-container">
+    <button
+      className="btn btn-secondary"
+      onClick={() => handleEdit(product)}
+    >
+      Editar
+    </button>
+    <button
+      className="btn btn-danger"
+      onClick={() => handleDelete(product.id)}
+    >
+      Eliminar
+    </button>
+  </div>
+</div>
+
                 </div>
               </div>
             ))}

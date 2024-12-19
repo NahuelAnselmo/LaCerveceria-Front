@@ -1,4 +1,104 @@
 
+
+.category-section .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+  text-align: center;
+  background-color: #fff; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  padding: 20px;
+  margin: 15px;
+  width: 100%;
+  max-width: 300px; 
+  height: 450px; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.category-section .card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+}
+
+.category-section .card img {
+  width: 100%; 
+  height: 180px; 
+  object-fit: contain; 
+  border-radius: 8px; 
+
+  padding: 10px; 
+}
+
+.category-section .card-title,
+.category-section .card-text {
+  min-height: 20px; 
+  overflow: hidden; 
+}
+
+.category-section .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.category-section .card .button-container {
+  margin-top: auto; 
+  display: flex;
+  gap: 10px; 
+  justify-content: center; 
+}
+
+
+
+.category-section .card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
+
+
+.category-section .card p {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+}
+
+
+.category-section .card button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+
+.category-section .card button:first-of-type {
+  background-color: #28a745; 
+  margin-right: 10px;
+}
+
+.category-section .card button:first-of-type:hover {
+  background-color: #218838;
+}
+
+
+.category-section .card button:last-of-type {
+  background-color: #dc3545; 
+}
+
+.category-section .card button:last-of-type:hover {
+  background-color: #c82333;
+}
+
 .AdminViewcss {
   background-color: #6e6e6e;
 }
@@ -21,6 +121,7 @@
   margin: 0 auto;
   margin-bottom: 80px;
 }
+
 
 
 .form-group {
