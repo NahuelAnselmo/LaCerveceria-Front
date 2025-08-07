@@ -6,7 +6,7 @@ Este proyecto es una aplicación web para el bar "La Cerveceria", creada con Rea
 
 - **Nahuel Anselmo**: [https://github.com/NahuelAnselmo](https://github.com/NahuelAnselmo)
 - **Mario Arroyo**: [https://github.com/Mariojar96](https://github.com/Mariojar96)
-- **Santiago Altamiranda **: [https://github.com/SantiagoAltamiranda](https://github.com/SantiagoAltamiranda)
+- **Santiago Altamiranda**: [https://github.com/SantiagoAltamiranda](https://github.com/SantiagoAltamiranda)
 
 ## Características
 
